@@ -1,0 +1,72 @@
+:root {
+  --col-red: #F05050;
+  --col-orange: #F07850;
+  --col-blue: #285078;
+  --col-old-paper: #F6EEE1; 
+  --col-ancient-paper: #F5E4C9;
+  --col-old-ink: #0E1F37;
+  --col-old-pencil: #454B55;
+
+  --max-mobile-width: 768px;
+}
+
+:root {
+  --color-background: var(--col-old-paper);
+  --color-text: var(--col-old-ink);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Lora', serif;
+}
+
+
+/* fonts */
+@font-face {
+  font-family: 'Lora';
+  src: url(./fonts/Lora-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url(./fonts/Lora-Bold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url(./fonts/Lora-BoldItalic.ttf) format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url(./fonts/Lora-Italic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: italic; 
+}

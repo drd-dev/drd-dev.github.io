@@ -1,0 +1,62 @@
+@import "./base.css";
+
+#app {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: 0.25s all;
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: var(--col-red) !important;
+  }
+}
+
+
+p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--col-old-pencil);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.text-light {
+  color: var(--col-old-paper);
+}
+
+.text-dark {
+  color: var(--old-ink);
+}
+
+
+.bg-blue {
+  background: var(--col-blue);
+}
+
+.bg-red {
+  background: var(--col-red);
+}
+
+.bg-orange {
+  background: var(--col-orange);
+}
