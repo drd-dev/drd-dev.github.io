@@ -18,7 +18,10 @@ import Skills from "../components/sections/Skills.vue";
         <img id="wave" src="@/assets/svg/emoji/wave.svg" alt="">
         <h1 id="hello-world">Hello World</h1>
         <p>I’m Dylan, a Pennsylvania based Software Developer who believes in using the power of thoughtful code and design to bring incredible experiences to life.</p>
-        <a href="mailto:dyldougherty@gmail.com" class="button-dark">Contact Me</a>
+        <div class="buttons">
+          <router-link class="button button-dark-outline" to="/#work">View My Work</router-link>
+          <a href="mailto:dyldougherty@gmail.com" class="button button-dark">Contact Me</a>
+        </div>
       </div>
     </div>
     <MyWork/>
@@ -35,7 +38,7 @@ import Skills from "../components/sections/Skills.vue";
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   animation: fadeIn 0.5s ease-in-out;
   animation-direction: forwards;
 }
@@ -70,6 +73,7 @@ import Skills from "../components/sections/Skills.vue";
   .hello {
     align-items: center;
     text-align: center;
+    width: 90%;
   }
 }
 
@@ -81,7 +85,6 @@ img{
   max-width: 80px;
 }
 .lines{
-  margin-top: 50px;
   width: 100%;
   animation: lineGrow 0.5s ease-in-out;
   animation-direction: forwards;
@@ -94,30 +97,35 @@ hr {
   margin-bottom: 5px;
 }
 
-.button-dark {
-  background-color: var(--col-old-ink);
-  color: var(--col-old-paper);
-  padding: 12px 32px 12px 32px;
-  border: none;
-  font-size: 20px;
-  margin-top: 50px;
-  display: block;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
+  white-space: nowrap;
+  margin-bottom: 50px;
 }
 
-@media(hover: hover){
-  .button-dark:hover {
-    background-color: var(--col-red);
-    color: var(--col-old-ink) !important;
+@media only screen and (max-width: 850px) {
+  .buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+  .button {
+    margin: 20px;
+    width: 300px;
+  } 
 }
+
+
+
 
 #wave {
   opacity: 0;
   animation: wave 1s infinite ease-in-out alternate, fadeIn 0.75s ease-in-out forwards; 
   animation-delay: 0.5s;
-  /* animation-direction: alternate; */
 }
 
 

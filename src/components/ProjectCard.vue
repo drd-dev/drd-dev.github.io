@@ -6,7 +6,7 @@
     <h5 style="float:right">{{year}}</h5>
     <h2 class="title">{{title}}</h2>
     <p>{{description}}</p>
-    <a class="learn-more" :href="link" target="_blank" style="float:right; margin-top: 35px;">Learn More</a>
+    <router-link class="learn-more" :to="link" style="float:right; margin-top: 35px;">Learn More</router-link>
   </div>
 </div>
 </template>
@@ -47,7 +47,6 @@ const props = defineProps({
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   width: 350px;
   height: 500px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

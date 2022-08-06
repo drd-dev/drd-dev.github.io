@@ -21,19 +21,19 @@
       <div class="projects">
         <ProjectCard
           class="project-card"
-          icon="src/assets/images/projects/greatMachine/dwarf.gif"
+          icon="src/assets/images/projects/cocoon-qr/qr-code.svg"
           title="COCOON-QR"
           year="2022"
-          description="A mobile game about a lost space man"
-          link="https://zeoxo.itch.io/the-great-machine-ldjam48"
-          image="src/assets/images/projects/greatMachine/TGM.gif"
+          description="A QR Code management system"
+          link="/projects/cocoon-qr"
+          image="src/assets/images/projects/cocoon-qr/qr-created.png"
         /> 
         <ProjectCard
           class="project-card"
           icon="src/assets/images/projects/greatMachine/dwarf.gif"
           title="COCOON-Present"
           year="2022"
-          description="A mobile game about a lost space man"
+          description="Presentation software for client meetings"
           link="https://zeoxo.itch.io/the-great-machine-ldjam48"
           image="src/assets/images/projects/greatMachine/TGM.gif"
         />
@@ -42,7 +42,7 @@
           icon="src/assets/images/projects/greatMachine/dwarf.gif"
           title="Purchase Order Tracker"
           year="2020"
-          description="A mobile game about a lost space man"
+          description="Track purchase orders"
           link="https://zeoxo.itch.io/the-great-machine-ldjam48"
           image="src/assets/images/projects/greatMachine/TGM.gif"
         />
@@ -51,7 +51,7 @@
           icon="src/assets/images/projects/greatMachine/dwarf.gif"
           title="Social Study"
           year="2019"
-          description="A mobile game about a lost space man"
+          description="A collaborative learning tool students"
           link="https://zeoxo.itch.io/the-great-machine-ldjam48"
           image="src/assets/images/projects/greatMachine/TGM.gif"
         />
@@ -94,7 +94,7 @@
           year="2017"
           description="A Game made in 48 hours for Shananijam 2017"
           link="https://zeoxo.itch.io/slap-fight"
-          image="https://img.itch.zone/aW1hZ2UvMTQ2OTA0LzY3Mzg1OC5wbmc=/794x1000/%2B7O%2Fuo.png"
+          image="src/assets/images/projects/slapFight/slapFight.gif"
         />
       </div>  
       <img class="icon" src="@/assets/svg/emoji/art.svg" alt="">

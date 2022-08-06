@@ -48,6 +48,15 @@
 </div>
 </template>
 
+<script setup>
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+})
+
+</script>
+
 
 <style scoped>
 .content {
@@ -96,7 +105,6 @@ img {
   margin-top: 20px;
 }
 .lines{
-  margin-top: 50px;
   width: 100%;
   animation: lineGrow 0.5s ease-in-out;
   animation-direction: forwards;
