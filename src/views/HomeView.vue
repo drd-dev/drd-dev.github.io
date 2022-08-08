@@ -2,6 +2,7 @@
 import MyWork from "../components/sections/MyWork.vue";
 import About from "../components/sections/About.vue";
 import Skills from "../components/sections/Skills.vue";
+import ColorBoxes from "../components/colorBoxes.vue";
 </script>
 
 <template>
@@ -12,11 +13,14 @@ import Skills from "../components/sections/Skills.vue";
       <hr class="bg-red">
     </div>
     <div class="hero">
-      <div class="name">Dylan Dougherty</div>
+      <h1 class="name">Dylan Dougherty</h1>
       <div class="title">Software Developer</div>
       <div class="hello">
         <img id="wave" src="@/assets/svg/emoji/wave.svg" alt="">
-        <h1 id="hello-world">Hello World</h1>
+        <div style="display: flex;">
+          <h1 id="hello-world">Hello World </h1>
+          <ColorBoxes/>
+        </div>
         <p>I’m Dylan, a Pennsylvania based Software Developer who believes in using the power of thoughtful code and design to bring incredible experiences to life.</p>
         <div class="buttons">
           <router-link class="button button-dark-outline" to="/#work">View My Work</router-link>
@@ -79,6 +83,12 @@ import Skills from "../components/sections/Skills.vue";
 
 #hello-world {
   white-space: nowrap;
+  display: inline-flex;
+}
+
+.color-boxes {
+  margin-top: 17px;
+  margin-left: 5px;
 }
 
 img{

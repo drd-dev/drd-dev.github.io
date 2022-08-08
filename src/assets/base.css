@@ -70,3 +70,8 @@ body {
   font-weight: normal;
   font-style: italic; 
 }
+
+@font-face {
+  font-family: 'Lexend';
+  src: url(./fonts/Lexend.ttf) format('truetype');
+}

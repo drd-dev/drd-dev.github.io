@@ -1,13 +1,13 @@
 <template>
-  <div class="navbar">
+  <div class="navbar" :class="{'box-shadow-normal': showShadow}">
     <router-link class="logo" to="/#home">
       <img src="@/assets/images/logo.svg" alt="logo" />
     </router-link>
     <div class="links desktop">
-      <router-link to="/#home">Home</router-link>
-      <router-link to="/#work">Work</router-link>
-      <router-link to="/#skills">Skills</router-link>
-      <router-link to="/#about">About</router-link>
+      <nav-bar-link link="/#home">Home</nav-bar-link>
+      <nav-bar-link link="/#work">Work</nav-bar-link>
+      <nav-bar-link link="/#skills">Skills</nav-bar-link>
+      <nav-bar-link link="/#about">About</nav-bar-link>
       <router-link class="button button-dark" id="contact" to="/#contact">Contact</router-link>
     </div>
     <div class="mobile">
@@ -22,22 +22,31 @@
       </div>
     </div>
     <div class="menu box-shadow-normal" v-if="isOpen">
-      <router-link class="mobile-link" @click="toggleMenu" to="/#home">Home</router-link>
-      <router-link class="mobile-link" @click="toggleMenu" to="/#work">Work</router-link>
-      <router-link class="mobile-link" @click="toggleMenu" to="/#skills">Skills</router-link>
-      <router-link class="mobile-link" @click="toggleMenu" to="/#about">About</router-link>
-      <router-link class="button button-dark mobile-link" id="contact" @click="toggleMenu"  to="/#contact">Contact</router-link>
+      <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#home">Home</nav-bar-link>
+      <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#work">Work</nav-bar-link>
+      <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#skills">Skills</nav-bar-link>
+      <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#about">About</nav-bar-link>
+      <nav-bar-link class="button button-dark mobile-link" id="contact" @click="toggleMenu"  link="/#contact">Contact</nav-bar-link>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed, onMounted } from "vue";
+import NavBarLink from "./NavBarLink.vue";
 const isOpen = ref(false);
 
 function toggleMenu() {
   isOpen.value = !isOpen.value;
 }
+
+const showShadow = ref(false);
+
+onMounted(() => {
+  window.addEventListener("scroll", () => {
+    showShadow.value = window.scrollY > 0 ? true : false;
+  });
+});
 </script>
 
 <style scoped>
@@ -50,10 +59,10 @@ function toggleMenu() {
   left: 0px;
   right: 0px;
   top: 0px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: box-shadow 0.25s;
 }
 
 .mobile {
@@ -79,6 +88,7 @@ function toggleMenu() {
 .mobile-link {
   opacity: 0;
   animation: fadeIn 0.25s ease-in-out forwards 0.1s;
+  margin: 20px;
 }
 
 /* mobile */
@@ -96,11 +106,6 @@ function toggleMenu() {
 
 img {
   width: 80px;
-}
-
-a {
-  font-size: 20px;
-  margin-left: 30px;
 }
 
 .logo {

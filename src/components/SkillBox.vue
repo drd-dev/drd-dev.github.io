@@ -71,11 +71,12 @@ const years = computed(() => {
 }
 
 img {
-  max-width: 50px;
+  height: 50px;
 }
 
 h3 {
   margin-top: 8px;
+  font-family: Lexend;
 }
 
 </style>

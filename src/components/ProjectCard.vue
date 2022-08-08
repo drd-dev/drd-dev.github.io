@@ -94,6 +94,7 @@ const props = defineProps({
     margin-top: 12px;
     font-size: 25px;
     font-weight: bold;
+    font-family: Lexend;
   }
 
 p {
