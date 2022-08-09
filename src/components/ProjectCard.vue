@@ -1,118 +1,167 @@
 <template>
-<div class="project-card">
-  <img class="image" :src="image" alt="">
-  <div class="bottom">
-    <img class="icon" :src="icon" alt="">
-    <h5 style="float:right">{{year}}</h5>
-    <h2 class="title">{{title}}</h2>
-    <p>{{description}}</p>
-    <router-link class="learn-more" :to="link" style="float:right; margin-top: 35px;">Learn More</router-link>
+  <div class="project-card" ref="card" v-element-visibility="onScroll">
+    <div class="title">
+      <h2 class="title">{{ title }}</h2>
+      <h5>{{ year }}</h5>
+    </div>
+    <a v-if="link" :href="link">
+      <img class="image" :src="image" alt="" />
+    </a>
+    <img v-else class="image" :src="image" alt="">
+    <div class="bottom">
+      <div class="card box-shadow-normal">
+        <p>{{ description }}</p>
+      </div>
+      <div class="bottom-text">
+        <div class="tech">
+          <span class="tech-entry" v-for="t in tech">{{ t }}</span>
+        </div>
+        <a v-if="link" :href="link" target="_blank"><img class="link" src="@/assets/svg/link.svg" alt="Eternal Link"></a>
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
-
 <script setup lang="ts">
+import { ref } from "vue";
+import { vElementVisibility } from "@vueuse/components";
 const props = defineProps({
-  icon: {
-    type: String,
-    default: '',
-  },
   title: {
     type: String,
-    default: '',
+    default: "",
   },
   description: {
     type: String,
-    default: '',
+    default: "",
   },
   link: {
     type: String,
-    default: '',
+    default: "",
   },
   image: {
     type: String,
-    default: '',
+    default: "",
   },
   year: {
     type: String,
-    default: '',
-  }
+    default: "",
+  },
+  buttonText: {
+    type: String,
+    default: "Learn More",
+  },
+  tech: {
+    type: Array,
+    default: () => [],
+  },
 });
+
+const card = ref(null);
+function onScroll(state: boolean) {
+  if (state && card.value) {
+    const c: any = card.value;
+    c.classList.add("visible");
+  }
+}
 </script>
 
 <style scoped>
-.project-card {
-  color: var(--col-old-ink);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  width: 350px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+.project-card{
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.25s ease-in-out;
+}
+
+.visible{
+  opacity: 1;
+}
+
+img {
+  width: 650px;
+  height: 350px;
   border-radius: 10px;
-  transition: all 0.25s;
+  filter: grayscale(100%);
+  cursor: pointer;
+  object-fit: cover;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (hover: hover) {
-  .project-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.75);
+  img:hover {
+    filter: grayscale(0%);
   }
+}
+.title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  font-family: Lexend;
+}
+
+.card {
+  width: 500px;
+  text-align: left;
+  margin: 0px auto;
+  color: var(--col-old-ink);
+  background-color: var(--col-old-paper);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .bottom {
-  position: absolute;
-  background-color: var(--col-old-paper);
-  width: 100%;
-  border-radius: 0px 0px 10px 10px;
-  padding: 10px;
-  text-align: left;
-  padding-bottom: 10px;
-  bottom: 0px;
-  top: 300px;
+  top: -80px;
+  color: var(--col-old-paper);
 }
 
-.icon {
-  width: 80px;
-  position: absolute;
-  width: 50px;
-  z-index: 100;
-  left: 10px;
-  bottom: 175px
+.bottom-text{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
-.image {
-  width: 100%;
-  height: 300px;
-  border-radius: 10px 10px 0px 0px;
-  object-fit: cover;
+.tech{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 18px;
 }
-  
-  .title {
-    margin-top: 12px;
-    font-size: 25px;
-    font-weight: bold;
-    font-family: Lexend;
+.tech-entry {
+  margin: 8px;
+}
+
+.link {
+  width: 35px;
+  height: auto;
+  filter: invert(93%) sepia(13%) saturate(552%) hue-rotate(335deg) brightness(99%) contrast(94%);
+}
+
+@media (hover: hover){
+  .link:hover {
+   filter: invert(47%) sepia(27%) saturate(6319%) hue-rotate(331deg) brightness(97%) contrast(94%);
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .project-card {
+    width: 100%;
   }
 
-p {
-  margin-bottom: 5px;
-  font-size: 15px;
-}
+  .title{
+    justify-content: center;
+  }
 
-.learn-more {
-  position: absolute;
-  background-color: var(--col-old-ink);
-  color: var(--col-old-paper);
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  right: 10px;
-  bottom: 10px;
+  .card{
+    width: 90%;
+  }
+
+  img {
+    width: 98%;
+    filter: grayscale(0%);
+  }
+
+  .bottom-text{
+    display: none;
+  }
 }
 </style>

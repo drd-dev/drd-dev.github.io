@@ -8,7 +8,7 @@
       <nav-bar-link link="/#work">Work</nav-bar-link>
       <nav-bar-link link="/#skills">Skills</nav-bar-link>
       <nav-bar-link link="/#about">About</nav-bar-link>
-      <router-link class="button button-dark" id="contact" to="/#contact">Contact</router-link>
+      <a class="button button-dark" id="contact" href="mailto:dyldougherty@gmail.com">Contact</a>
     </div>
     <div class="mobile">
       <div class="hamburger" v-if="!isOpen" @click="toggleMenu">
@@ -26,7 +26,7 @@
       <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#work">Work</nav-bar-link>
       <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#skills">Skills</nav-bar-link>
       <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#about">About</nav-bar-link>
-      <nav-bar-link class="button button-dark mobile-link" id="contact" @click="toggleMenu"  link="/#contact">Contact</nav-bar-link>
+      <a class="button button-dark" id="contact" href="mailto:dyldougherty@gmail.com">Contact</a>
     </div>
   </div>
 </template>

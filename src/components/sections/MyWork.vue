@@ -11,49 +11,44 @@
       <hr class="bg-red" />      
     </div>
     <div class="content">
-      <img src="@/assets/svg/emoji/folder.svg" alt="" />
+      <img class="section-icon" src="@/assets/svg/emoji/folder.svg" alt="" />
       <h1 class="text-light">My Work</h1>
-      <p style="margin-bottom: 80px;">Below you will find some of my work, which includes web apps, games, and art.</p>
-
-
       <img class="icon" src="@/assets/svg/emoji/globe.svg" alt="">
       <h2>Web</h2>
       <div class="projects">
         <ProjectCard
           class="project-card"
-          icon="src/assets/images/projects/cocoon-qr/qr-code.svg"
           title="COCOON-QR"
           year="2022"
-          description="A QR Code management system"
+          description="A QR Code management system that features a QR-code generator with customization options such as images and colors, Dynamic URL management, and basic tracking."
           link="/projects/cocoon-qr"
           image="src/assets/images/projects/cocoon-qr/qr-created.png"
+          :tech="['HTML/CSS', 'Firebase', 'Vue']"
         /> 
         <ProjectCard
           class="project-card"
-          icon="src/assets/images/projects/greatMachine/dwarf.gif"
           title="COCOON-Present"
           year="2022"
-          description="Presentation software for client meetings"
-          link="https://zeoxo.itch.io/the-great-machine-ldjam48"
+          description="Specialized presentation software for showing slideshows on three seperate screens."
           image="src/assets/images/projects/greatMachine/TGM.gif"
+          :tech="['HTML/CSS', 'Javascript', 'Vue', 'Electron']"
         />
         <ProjectCard
           class="project-card"
-          icon="src/assets/images/projects/greatMachine/dwarf.gif"
-          title="Purchase Order Tracker"
+          title="P.O.T."
           year="2020"
-          description="Track purchase orders"
-          link="https://zeoxo.itch.io/the-great-machine-ldjam48"
+          description="Custom Web App for tracking purchase orders, and future purchases. Tracks dates, suppiers, tracking numbers, invoices, stores files, and more."
           image="src/assets/images/projects/greatMachine/TGM.gif"
+          :tech="['HTML/CSS', 'Javascript', 'Vue', 'nest.js']"
         />
         <ProjectCard
           class="project-card"
-          icon="src/assets/images/projects/greatMachine/dwarf.gif"
           title="Social Study"
           year="2019"
-          description="A collaborative learning tool students"
-          link="https://zeoxo.itch.io/the-great-machine-ldjam48"
-          image="src/assets/images/projects/greatMachine/TGM.gif"
+          description="A collaborative learning tool for students that includes note taking, practice quizzes, live chat, calendar, flash cards, and more."
+          image="https://i.ibb.co/MkCzmMH/social-Study.gif"
+          :tech="['HTML/CSS', 'Javascript', 'Vue', 'Firebase']"
+          link="https://socialstudy.app"
         />
         </div>     
         
@@ -62,39 +57,39 @@
       <div class="projects">
         <ProjectCard
           class="project-card"
-          icon="src/assets/images/projects/greatMachine/dwarf.gif"
           title="The Great Machine"
           year="2021"
-          description="A game made in 48 hours with the Godot engine"
-          link="https://zeoxo.itch.io/the-great-machine-ldjam48"
+          description="A game about a dwarf digging a hole. Made in 48 hours for LudumDare 48  with the Godot engine"
           image="src/assets/images/projects/greatMachine/TGM.gif"
+          :tech="['Godot', 'GdScript']"
+          link="https://zeoxo.itch.io/the-great-machine-ldjam48"
         />
         <ProjectCard
           class="project-card"
-          icon="src/assets/images/projects/flyta/spaceman.svg"
           title="FLYTA"
           year="2021"
-          description="A mobile game about a lost space man"
-          link="https://flytagame.com"
+          description="A mobile game for iOS and Android about a lost space man."
           image="src/assets/images/projects/flyta/flyta.gif"
+          :tech="['Unity', 'C#', 'XCode']"
+          link="https://flytagame.com/"
         />
         <ProjectCard
           class="project-card"
-          icon="src/assets/images/projects/pop/orange.png"
           title="Paper or Plastic"
           year="2019"
-          description="A mobile game about catching groceries"
-          link="https://zeoxo.itch.io/pop"
+          description="A mobile game about catching groceries. Originally made in Game Maker, and later rebuilt in the Godot Engine."
           image="https://img.itch.zone/aW1nLzU0ODEyMTEuZ2lm/original/BOKXz5.gif"
+          :tech="['Godot', 'GdScript', 'GameMaker']"
+          link="https://zeoxo.itch.io/pop"
         />
         <ProjectCard
           class="project-card"
-          icon="https://img.itch.zone/aW1hZ2UvMTQ2OTA0LzY3Mzg0Ny5wbmc=/original/QM%2B8vu.png"
           title="Slap Fight"
           year="2017"
-          description="A Game made in 48 hours for Shananijam 2017"
-          link="https://zeoxo.itch.io/slap-fight"
+          description="A Game about fighting your opponent with slaps, made in 48 hours for Shananijam 2017"
           image="src/assets/images/projects/slapFight/slapFight.gif"
+          :tech="['GameMaker']"
+          link="https://zeoxo.itch.io/slap-fight"
         />
       </div>  
       <img class="icon" src="@/assets/svg/emoji/art.svg" alt="">
@@ -127,7 +122,7 @@ import ProjectCard from "@/components/ProjectCard.vue";
 
 .projects {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -199,6 +194,10 @@ hr {
   .project-card {
     margin: 0px;
     margin-bottom: 30px;
+  }
+
+  .lines{
+    display: none;
   }
 }
 

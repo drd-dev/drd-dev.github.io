@@ -39,7 +39,6 @@ h2 {
   font-weight: bold;
   margin: 0;
   padding: 0;
-  /* font-family: Lexend; */
 }
 
 /* text colors */
@@ -85,6 +84,12 @@ h2 {
   border: none;
 }
 
+.button-light{
+  background-color: var(--col-old-paper);
+  color: var(--col-old-ink);
+  border: none; 
+}
+
 @media(hover: hover){
   .button-dark:hover {
     background-color: var(--col-red);
@@ -102,4 +107,8 @@ h2 {
   .button-dark-outline:hover {
     border: 2px solid var(--col-red);
   }
+}
+
+.section-icon{
+  height: 50px;
 }

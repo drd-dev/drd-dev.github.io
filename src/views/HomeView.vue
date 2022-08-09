@@ -2,16 +2,13 @@
 import MyWork from "../components/sections/MyWork.vue";
 import About from "../components/sections/About.vue";
 import Skills from "../components/sections/Skills.vue";
-import ColorBoxes from "../components/colorBoxes.vue";
+import ColorBoxes from "../components/ColorBoxes.vue";
+import HLines from "../components/HLines.vue"
 </script>
 
 <template>
   <main id="home">
-    <div class="lines">
-      <hr class="bg-blue">
-      <hr class="bg-orange">
-      <hr class="bg-red">
-    </div>
+    <HLines></HLines>
     <div class="hero">
       <h1 class="name">Dylan Dougherty</h1>
       <div class="title">Software Developer</div>
@@ -94,18 +91,6 @@ import ColorBoxes from "../components/colorBoxes.vue";
 img{
   max-width: 80px;
 }
-.lines{
-  width: 100%;
-  animation: lineGrow 0.5s ease-in-out;
-  animation-direction: forwards;
-}
-
-hr {
-  width: 100%;
-  border: 0;
-  height: 8px;
-  margin-bottom: 5px;
-}
 
 .buttons {
   display: flex;
@@ -163,15 +148,6 @@ hr {
   }
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes lineGrow {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
   }
 }
 

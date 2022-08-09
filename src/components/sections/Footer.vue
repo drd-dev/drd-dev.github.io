@@ -1,0 +1,73 @@
+<template>
+<div class="footer">
+  <div class="content">
+    <div class="left">
+      <img src="@/assets/images/logo.svg" alt="">
+      <div> &copy; Dylan Dougherty, {{year}}</div>
+    </div>
+    <a class="button button-light" href="mailto:dyldougherty@gmail.com">Contact Me</a>
+  </div>
+</div>
+</template>
+
+
+<script setup lang="ts">
+import {ref} from 'vue';
+
+
+const year = ref(new Date().getFullYear());
+
+</script>
+
+<style scoped>
+.footer{
+  min-height: 100px;
+  color: var(--col-old-paper);
+  background-color: var(--col-old-ink);
+  font-family: Lexend;
+
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+img{
+  width: 75px;
+  margin-right: 10px;
+  filter: invert(76%) sepia(56%) saturate(7311%) hue-rotate(326deg) brightness(92%) contrast(105%);
+}
+
+@media only screen and (max-width: 750px) {
+  .content {
+    padding-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 250px;
+  }
+
+  .left{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img{
+    margin-bottom: 10px;
+  }
+}
+
+</style>

@@ -1,14 +1,15 @@
 <template>
-    <a class="skill" :href="link" target="_blank">
+    <a class="skill" :href="link" target="_blank" ref="skill">
       <img :src="icon" alt="skill icon">
       <h3>{{text}}</h3>
-      <p class="time">{{years}} years</p>
+      <p v-element-visibility="onScroll" class="time">{{years}} years</p>
     </a>
 </template>
 
 <script setup lang="ts">
 import {computed} from 'vue';
-
+import {ref} from 'vue';
+import {vElementVisibility } from "@vueuse/components";
 const props = defineProps({
   text: {
     type: String,
@@ -37,6 +38,14 @@ const years = computed(() => {
   const diffTime = endDate.getFullYear() - props.startYear;
   return diffTime;
 })
+
+const skill = ref(null);
+function onScroll(state: boolean) {
+  if(state && skill.value){
+    const s: any = skill.value;
+    s.classList.add('visible');
+  }
+}
 </script>
 
 
@@ -56,6 +65,11 @@ const years = computed(() => {
   color: var(--col-old-paper);
   transition: all 0.2s;
   cursor: pointer;
+  opacity: 0;
+}
+
+.visible{
+  opacity: 1;
 }
 
 .time {

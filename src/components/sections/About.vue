@@ -1,6 +1,11 @@
+<script setup lang="ts">
+import HLines from "@/components/HLines.vue";
+</script>
+
 <template>
   <div class="about-me" id="about">
-    <img src="@/assets/svg/emoji/questionmark.svg" alt="" />
+    <HLines/>
+    <img class="section-icon" src="@/assets/svg/emoji/questionmark.svg" alt="" />
     <h1>About Me</h1>
     <div class="content">
       <h2>A Passion For Creation</h2>
@@ -35,6 +40,11 @@
 .about-me {
   padding-top: 80px;
 }
+
+.lines {
+  margin-bottom: 50px;
+}
+
 .content {
   text-align: left;
   max-width: 60%;
