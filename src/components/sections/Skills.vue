@@ -28,7 +28,6 @@
 
 <script setup lang="ts">
 import SkillBox from '@/components/SkillBox.vue';
-import HLines from "@/components/HLines.vue";
 </script>
 
 <style scoped>

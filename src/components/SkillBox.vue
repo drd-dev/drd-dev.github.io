@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import {computed} from 'vue';
 import {ref} from 'vue';
-import {vElementVisibility } from "@vueuse/components";
+import { vElementVisibility } from "@vueuse/components";
 const props = defineProps({
   text: {
     type: String,

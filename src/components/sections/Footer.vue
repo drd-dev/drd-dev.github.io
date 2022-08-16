@@ -5,7 +5,10 @@
       <img src="@/assets/images/logo.svg" alt="">
       <div> &copy; Dylan Dougherty, {{year}}</div>
     </div>
-    <a class="button button-light" href="mailto:dyldougherty@gmail.com">Contact Me</a>
+    <div class="right">
+      <a class="button button-light" href="mailto:dyldougherty@gmail.com">Contact Me</a>
+      <a class="info" href="">View Source Code</a>
+    </div>
   </div>
 </div>
 </template>
@@ -68,6 +71,10 @@ img{
   img{
     margin-bottom: 10px;
   }
+}
+
+.info {
+  color: var(--col-old-paper);
 }
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card" ref="card" v-element-visibility="onScroll">
+  <div class="project-card" ref="card">
     <div class="title">
       <h2 class="title">{{ title }}</h2>
       <h5>{{ year }}</h5>
@@ -8,7 +8,7 @@
       <img class="image" :src="image" alt="" />
     </a>
     <img v-else class="image" :src="image" alt="">
-    <div class="bottom">
+    <div v-element-visibility="onScroll" class="bottom">
       <div class="card box-shadow-normal">
         <p>{{ description }}</p>
       </div>
@@ -109,7 +109,7 @@ img {
 }
 
 .bottom {
-  top: -80px;
+  top: -60px;
   color: var(--col-old-paper);
 }
 
