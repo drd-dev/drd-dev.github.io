@@ -13,7 +13,7 @@
     <div class="content">
       <img class="section-icon" src="@/assets/svg/emoji/folder.svg" alt="" />
       <h1 class="text-light">My Work</h1>
-      <img class="icon" src="@/assets/svg/emoji/globe.svg" alt="">
+      <img style="margin-top: 50px;" class="icon" src="@/assets/svg/emoji/globe.svg" alt="">
       <h2>Web</h2>
       <div class="projects">
         <ProjectCard
@@ -31,7 +31,7 @@
           year="2022"
           description="Specialized presentation software for showing slideshows on three seperate screens."
           image="src/assets/images/projects/greatMachine/TGM.gif"
-          :tech="['HTML/CSS', 'Javascript', 'Vue', 'Electron']"
+          :tech="['HTML/CSS', 'JavaScript', 'Vue', 'Electron']"
         />
         <ProjectCard
           class="project-card"
@@ -39,7 +39,7 @@
           year="2020"
           description="Custom Web App for tracking purchase orders, and future purchases. Tracks dates, suppiers, tracking numbers, invoices, stores files, and more."
           image="src/assets/images/projects/greatMachine/TGM.gif"
-          :tech="['HTML/CSS', 'Javascript', 'Vue', 'nest.js']"
+          :tech="['HTML/CSS', 'JavaScript', 'Vue', 'nest.js']"
         />
         <ProjectCard
           class="project-card"
@@ -47,8 +47,9 @@
           year="2019"
           description="A collaborative learning tool for students that includes note taking, practice quizzes, live chat, calendar, flash cards, and more."
           image="https://i.ibb.co/MkCzmMH/social-Study.gif"
-          :tech="['HTML/CSS', 'Javascript', 'Vue', 'Firebase']"
+          :tech="['HTML/CSS', 'JavaScript', 'Vue', 'Firebase']"
           link="https://socialstudy.app"
+          source="https://github.com/Social-Study/social-study"
         />
         </div>     
         
@@ -63,6 +64,7 @@
           image="src/assets/images/projects/greatMachine/TGM.gif"
           :tech="['Godot', 'GdScript']"
           link="https://zeoxo.itch.io/the-great-machine-ldjam48"
+          source="https://github.com/drd-dev/the-great-machine"
         />
         <ProjectCard
           class="project-card"
@@ -76,11 +78,12 @@
         <ProjectCard
           class="project-card"
           title="Paper or Plastic"
-          year="2019"
+          year="2017/2019"
           description="A mobile game about catching groceries. Originally made in Game Maker, and later rebuilt in the Godot Engine."
           image="https://img.itch.zone/aW1nLzU0ODEyMTEuZ2lm/original/BOKXz5.gif"
           :tech="['Godot', 'GdScript', 'GameMaker']"
           link="https://zeoxo.itch.io/pop"
+          source="https://github.com/drd-dev/paper-or-plastic-godot"
         />
         <ProjectCard
           class="project-card"
@@ -90,6 +93,7 @@
           image="src/assets/images/projects/slapFight/slapFight.gif"
           :tech="['GameMaker']"
           link="https://zeoxo.itch.io/slap-fight"
+          source="https://github.com/drd-dev/slap-fight"
         />
       </div>  
       <img class="icon" src="@/assets/svg/emoji/art.svg" alt="">
@@ -111,18 +115,9 @@ import ProjectCard from "@/components/ProjectCard.vue";
   overflow: hidden;
 }
 
-.content {
-  padding: 30px;
-}
-
-.icon {
-  max-width: 50px;
-  margin-top: 50px;
-}
-
 .projects {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -186,6 +181,10 @@ hr {
 }
 
 
+p {
+  color: var(--col-old-paper);
+}
+
 @media (max-width: 750px) {
   .content {
     padding: 5px;
@@ -201,8 +200,5 @@ hr {
   }
 }
 
-p {
-  color: var(--col-old-paper);
-}
 
 </style>

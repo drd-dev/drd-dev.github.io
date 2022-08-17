@@ -18,6 +18,17 @@ a {
   }
 }
 
+.content{
+  width: 50%;
+  margin: 0px auto;
+}
+
+@media only screen and (max-width: 750px) {
+  .content {
+    max-width: 95%;
+  }
+}
+
 /* text */
 p {
   margin: 0;

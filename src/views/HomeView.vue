@@ -9,7 +9,7 @@ import HLines from "../components/HLines.vue"
 <template>
   <main id="home">
     <HLines></HLines>
-    <div class="hero">
+    <div class="hero content">
       <h1 class="name">Dylan Dougherty</h1>
       <div class="title">Software Developer</div>
       <div class="hello">
@@ -63,7 +63,6 @@ import HLines from "../components/HLines.vue"
 .hello {
   margin-top: 10vh;
   text-align: left;
-  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -74,7 +73,6 @@ import HLines from "../components/HLines.vue"
   .hello {
     align-items: center;
     text-align: center;
-    width: 90%;
   }
 }
 

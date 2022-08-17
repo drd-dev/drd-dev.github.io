@@ -34,7 +34,6 @@ import SkillBox from '@/components/SkillBox.vue';
 .skills {
   text-align: center;
   padding-top: 80px;
-
 }
 
 .content {
@@ -42,7 +41,6 @@ import SkillBox from '@/components/SkillBox.vue';
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  max-width: 900px;
   margin: 0px auto;
 }
 
@@ -52,7 +50,7 @@ import SkillBox from '@/components/SkillBox.vue';
   color: var(--col-old-paper);
   border-radius: 10px;
   padding: 20px;
-  min-width: 350px;
+  max-width: 450px;
   position: sticky;
   top: 100px;
   margin: 10px;
@@ -74,9 +72,6 @@ import SkillBox from '@/components/SkillBox.vue';
 }
 
 @media only screen and (max-width: 750px) {
-  .skills {
-    width: 100%;
-  }
 
   .content {
     flex-direction: column;
@@ -84,6 +79,7 @@ import SkillBox from '@/components/SkillBox.vue';
   .card{
     position: relative;
     top: 0px;
+    align-self: center;
   }
 }
 

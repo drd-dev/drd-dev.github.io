@@ -69,8 +69,6 @@ import HLines from "@/components/HLines.vue";
 }
 
 .content {
-  width: 60%;
-  margin: 0px auto;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;

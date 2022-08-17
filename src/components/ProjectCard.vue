@@ -16,7 +16,10 @@
         <div class="tech">
           <span class="tech-entry" v-for="t in tech">{{ t }}</span>
         </div>
-        <a v-if="link" :href="link" target="_blank"><img class="link" src="@/assets/svg/link.svg" alt="Eternal Link"></a>
+        <div style="display: flex; justify-content: center; align-items: center">
+          <a v-if="source" :href="source" target="_blank"><img class="link" src="@/assets/svg/gitHub.svg" style="width: 25px; margin-right: 5px;" alt="Source Code Link"></a>
+          <a v-if="link" :href="link" target="_blank"><img class="link" src="@/assets/svg/link.svg" alt="Eternal Link"></a>
+        </div>
       </div>
     </div>
   </div>
@@ -53,6 +56,10 @@ const props = defineProps({
   tech: {
     type: Array,
     default: () => [],
+  },
+  source: {
+    type: String,
+    default: "",
   },
 });
 
@@ -110,6 +117,7 @@ img {
 
 .bottom {
   top: -60px;
+  height: 200px;
   color: var(--col-old-paper);
 }
 
