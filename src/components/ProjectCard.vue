@@ -9,8 +9,9 @@
     </a>
     <img v-else class="image" :src="image" alt="">
     <div v-element-visibility="onScroll" class="bottom">
+    <div class="info">
       <div class="card box-shadow-normal">
-        <p>{{ description }}</p>
+        <p id="desc">{{ description }}</p>
       </div>
       <div class="bottom-text">
         <div class="tech">
@@ -21,6 +22,7 @@
           <a v-if="link" :href="link" target="_blank"><img class="link" src="@/assets/svg/link.svg" alt="Eternal Link"></a>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -76,6 +78,7 @@ function onScroll(state: boolean) {
 .project-card{
   opacity: 0;
   transition: opacity 0.5s, transform 0.25s ease-in-out;
+
 }
 
 .visible{
@@ -83,7 +86,7 @@ function onScroll(state: boolean) {
 }
 
 img {
-  width: 650px;
+  width: 600px;
   height: 350px;
   border-radius: 10px;
   filter: grayscale(100%);
@@ -103,12 +106,17 @@ img {
   flex-wrap: nowrap;
   justify-content: flex-end;
   font-family: Lexend;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.info {
+  width: 500px;
+  margin: 0px auto;
 }
 
 .card {
-  width: 500px;
   text-align: left;
-  margin: 0px auto;
   color: var(--col-old-ink);
   background-color: var(--col-old-paper);
   padding: 20px;
@@ -125,14 +133,12 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 80px;
-  margin-right: 80px;
 }
 
 .tech{
   display: flex;
   justify-content: flex-start;
-  font-size: 18px;
+  font-size: 14px;
 }
 .tech-entry {
   margin: 8px;
@@ -151,25 +157,27 @@ img {
 }
 
 @media only screen and (max-width: 750px) {
-  .project-card {
-    width: 100%;
-  }
 
   .title{
     justify-content: center;
   }
 
-  .card{
-    width: 90%;
-  }
-
   img {
-    width: 98%;
+    width: 375px;
+    height: 200px;
     filter: grayscale(0%);
   }
 
+  .info {
+    bottom: 0px;
+    width: 300px;
+  }
   .bottom-text{
     display: none;
+  }
+
+  #desc {
+    font-size: 15px;
   }
 }
 </style>

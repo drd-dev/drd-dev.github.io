@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import HLines from "@/components/HLines.vue";
+import Tag from "@/components/Tag.vue";
+import {computed} from "vue";
+
+const age = computed(() => {
+  const year = new Date().getFullYear();
+  return year - 1997; 
+})
+
 </script>
 
 <template>
-  <div class="about-me">
+  <div class="about-me" id="about">
     <HLines class="lines" />
     <img class="section-icon" src="@/assets/svg/emoji/questionmark.svg" alt="" />
     <h1 style="margin-bottom: 80px;">About Me</h1>
@@ -11,13 +19,24 @@ import HLines from "@/components/HLines.vue";
       <div class="left">
         <h2>A Passion For Creation</h2>
         <p>
-          Growing up, I’ve always loved the act of creating. It started with Legos and evolved to Ceramics, Drawing,
-          Digital Art, and now Programming. Whatever the medium, my love for creation was always fueled by the rush of
-          eventually getting to share the effort of hundreds of hours of work with the others and seeing their
-          reactions. I believe that through the power of technology and code, we can bring incredible experiences to
-          life.
+          I believe that through the power of technology and code, incredible experiences can be brought to life.
+        </p>
+        <br>
+        <p>
+          Growing up, I’ve always loved the act of creating. It started with legos as a child and evolved to ceramics, drawing,
+          graphic design, and now programming. Whatever the medium, my love for creating has always been fueled by the ability to share what I've built with others.
         </p>
         <hr />
+        <div class="who">
+          <img class="section-icon" src="@/assets/svg/emoji/person.svg" alt="">
+          <h2>General Info</h2>
+          <div class="info">Who: <span>Dylan Dougherty</span></div>
+          <div class="info">What: <span>Software Developer</span></div>
+          <div class="info">When: <span>Born 1997 ({{age}} Years Old)</span></div>
+          <div class="info">Where: <span>West Chester, PA</span></div>
+          <div class="info">Why: <span>???</span></div>
+          <hr>
+        </div>
         <div class="edu">
           <img class="section-icon" src="@/assets/svg/emoji/gradCap.svg" alt="">
           <h2>Education</h2>
@@ -37,24 +56,29 @@ import HLines from "@/components/HLines.vue";
           </div>
         </div>
         <hr>
+        <div class="experience">
+          <img class="section-icon" src="@/assets/svg/emoji/briefcase.svg" alt="">
+          <h2>Work Experience</h2>
+        </div>
+        <hr>
+        <img class="section-icon" src="@/assets/svg/emoji/skiing.svg" alt="">
         <h2>Hobbies</h2>
         <p>
           I like to try new things. Because of this, I have many hobbies that I love to jump around depending on the
           time of year. Some I take more serious than others, but the list currently includes...
         </p>
-        <ul>
-          <li><a href="https://zeoxo.itch.io" target="_blank">Game Dev</a></li>
-          <li>Snowboarding</li>
-          <li>Skateboarding</li>
-          <li>Hiking</li>
-          <li>Cooking</li>
-          <li>Beer Brewing</li>
-          <li>Coffee</li>
-          <li>Custom Mechanical Keyboards</li>
-          <li>Digital Art</li>
-        </ul>
+        <div class="hobbies">
+          <Tag>Snowboarding</Tag>
+          <Tag>Game Dev</Tag>
+          <Tag>Hiking</Tag>
+          <Tag>Cooking</Tag>
+          <Tag>Homebrewing</Tag>
+          <Tag>Coffee</Tag>
+          <Tag>Mechanical Keyboards</Tag>
+          <Tag>Digital Art</Tag>
+        </div>
       </div>
-        <img class=" right box-shadow-normal" src="@/assets/images/General/profile_pic.jpg" alt="Profile Picutre" />
+        <img class="right box-shadow-normal" src="@/assets/images/General/profile_pic.jpg" alt="Profile Picutre" />
     </div>
   </div>
 </template>
@@ -161,4 +185,21 @@ ul {
   list-style-type: none; 
 }
 
+.info {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 15px;
+}
+
+.tag{
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
 </style>

@@ -10,7 +10,7 @@
       <hr class="bg-orange" />
       <hr class="bg-red" />      
     </div>
-    <div class="content">
+    <div class="">
       <img class="section-icon" src="@/assets/svg/emoji/folder.svg" alt="" />
       <h1 class="text-light">My Work</h1>
       <img style="margin-top: 50px;" class="icon" src="@/assets/svg/emoji/globe.svg" alt="">
@@ -30,15 +30,15 @@
           title="COCOON-Present"
           year="2022"
           description="Specialized presentation software for showing slideshows on three seperate screens."
-          image="src/assets/images/projects/greatMachine/TGM.gif"
-          :tech="['HTML/CSS', 'JavaScript', 'Vue', 'Electron']"
+          image="src/assets/images/projects/present/present.png"
+          :tech="['HTML/CSS', 'JavaScript', 'Electron']"
         />
         <ProjectCard
           class="project-card"
-          title="P.O.T."
+          title="Purchase Order Tracker"
           year="2020"
           description="Custom Web App for tracking purchase orders, and future purchases. Tracks dates, suppiers, tracking numbers, invoices, stores files, and more."
-          image="src/assets/images/projects/greatMachine/TGM.gif"
+          image="src/assets/images/projects/pot/pot.png"
           :tech="['HTML/CSS', 'JavaScript', 'Vue', 'nest.js']"
         />
         <ProjectCard
@@ -95,9 +95,7 @@
           link="https://zeoxo.itch.io/slap-fight"
           source="https://github.com/drd-dev/slap-fight"
         />
-      </div>  
-      <img class="icon" src="@/assets/svg/emoji/art.svg" alt="">
-      <h2>Art</h2>
+      </div>   
     </div>
   </div>
 </template>
@@ -116,11 +114,12 @@ import ProjectCard from "@/components/ProjectCard.vue";
 }
 
 .projects {
-  display: grid;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin: 0px auto;
 }
 
 .project-card {

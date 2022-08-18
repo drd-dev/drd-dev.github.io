@@ -69,6 +69,7 @@ import SkillBox from '@/components/SkillBox.vue';
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  max-width: 450px;
 }
 
 @media only screen and (max-width: 750px) {
