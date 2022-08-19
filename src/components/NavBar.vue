@@ -4,10 +4,10 @@
       <img src="@/assets/images/logo.svg" alt="logo" />
     </router-link>
     <div class="links desktop">
-      <nav-bar-link link="/#home">Home</nav-bar-link>
-      <nav-bar-link link="/#work">Work</nav-bar-link>
-      <nav-bar-link link="/#skills">Skills</nav-bar-link>
-      <nav-bar-link link="/#about">About</nav-bar-link>
+      <nav-bar-link class="link" link="/#home">Home</nav-bar-link>
+      <nav-bar-link class="link" link="/#work">Work</nav-bar-link>
+      <nav-bar-link class="link" link="/#skills">Skills</nav-bar-link>
+      <nav-bar-link class="link" link="/#about">About</nav-bar-link>
       <a class="button button-dark" id="contact" href="mailto:dyldougherty@gmail.com">Contact</a>
     </div>
     <div class="mobile">
@@ -22,10 +22,10 @@
       </div>
     </div>
     <div class="menu box-shadow-normal" v-if="isOpen">
-      <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#home">Home</nav-bar-link>
-      <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#work">Work</nav-bar-link>
-      <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#skills">Skills</nav-bar-link>
-      <nav-bar-link class="mobile-link" @click="toggleMenu" link="/#about">About</nav-bar-link>
+      <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#home">Home</nav-bar-link>
+      <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#work">Work</nav-bar-link>
+      <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#skills">Skills</nav-bar-link>
+      <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#about">About</nav-bar-link>
       <a class="button button-dark" id="contact" href="mailto:dyldougherty@gmail.com">Contact</a>
     </div>
   </div>
@@ -169,6 +169,16 @@ img {
   }
   100% {
     opacity: 1;
+  }
+}
+
+.link{
+  color: var(--col-old-ink);
+  text-decoration: none;
+}
+@media(hover:hover){
+  .link:hover{
+    color: var(--col-red) !important;
   }
 }
 </style>

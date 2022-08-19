@@ -8,13 +8,13 @@
 
 a {
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--col-red);
   transition: 0.25s all;
 }
 
 @media (hover: hover) {
   a:hover {
-    color: var(--col-red) !important;
+    color: var(--col-old-pencil) !important;
   }
 }
 
