@@ -21,6 +21,7 @@ a {
 .content{
   width: 50%;
   margin: 0px auto;
+  max-width: 900px;
 }
 
 @media only screen and (max-width: 750px) {
