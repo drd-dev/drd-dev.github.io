@@ -106,6 +106,7 @@ const age = computed(() => {
         <Tag>Snowboarding</Tag>
         <Tag>Game Dev</Tag>
         <Tag>Hiking</Tag>
+        <Tag>3D Printing</Tag>
         <Tag>Cooking</Tag>
         <Tag>Homebrewing</Tag>
         <Tag>Coffee</Tag>
@@ -206,6 +207,7 @@ hr {
   background-color: var(--col-old-ink);
   color: var(--col-old-paper);
   padding: 20px;
+  min-width: 350px;
   border-radius: 10px;
   font-size: 18px;
 }
@@ -250,6 +252,12 @@ ul {
   flex-wrap: wrap;
   flex-direction: row;
   margin-top: 15px;
+}
+
+@media only screen and (max-width: 750px) {
+  .hobbies {
+    justify-content: center;
+  }
 }
 
 .tag {

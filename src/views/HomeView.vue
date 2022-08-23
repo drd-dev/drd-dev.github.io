@@ -2,7 +2,7 @@
 import MyWork from "../components/sections/MyWork.vue";
 import About from "../components/sections/About.vue";
 import Skills from "../components/sections/Skills.vue";
-import ColorBoxes from "../components/ColorBoxes.vue";
+import ColorBoxes from "../components/colorBoxes.vue";
 import HLines from "../components/HLines.vue"
 </script>
 

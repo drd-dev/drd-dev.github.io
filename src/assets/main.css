@@ -24,6 +24,12 @@ a {
   max-width: 900px;
 }
 
+@media only screen and (max-width: 850px) {
+  .content {
+    width: 90%;
+  }
+}
+
 @media only screen and (max-width: 750px) {
   .content {
     width: 95%;
