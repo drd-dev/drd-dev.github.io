@@ -4,6 +4,7 @@ import About from "../components/sections/About.vue";
 import Skills from "../components/sections/Skills.vue";
 import ColorBoxes from "../components/colorBoxes.vue";
 import HLines from "../components/HLines.vue"
+import Contact from "../components/sections/Contact.vue"
 </script>
 
 <template>
@@ -21,13 +22,14 @@ import HLines from "../components/HLines.vue"
         <p>I’m Dylan, a Pennsylvania based Software Developer who believes in using the power of thoughtful code and design to bring incredible experiences to life.</p>
         <div class="buttons">
           <router-link class="button button-dark-outline" to="/#work">View My Work</router-link>
-          <a href="mailto:dyldougherty@gmail.com" class="button button-dark">Contact Me</a>
+          <router-link class="button button-dark" to="/#contact">Contact Me</router-link>
         </div>
       </div>
     </div>
     <MyWork/>
     <Skills/>
     <About/>
+    <Contact/>
   </main>
 </template>
 

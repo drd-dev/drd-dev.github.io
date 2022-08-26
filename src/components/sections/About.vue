@@ -120,6 +120,7 @@ const age = computed(() => {
 <style scoped>
 .about-me {
   padding-top: 80px;
+  margin-bottom: 100px;
 }
 
 .lines {

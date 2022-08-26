@@ -94,6 +94,7 @@ h2 {
   cursor: pointer;
   font-weight: 600;
   font-size: 20px;
+  transition: all 0.2s;
 }
 
 .button-dark {

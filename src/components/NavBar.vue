@@ -8,7 +8,7 @@
       <nav-bar-link class="link" link="/#work">Work</nav-bar-link>
       <nav-bar-link class="link" link="/#skills">Skills</nav-bar-link>
       <nav-bar-link class="link" link="/#about">About</nav-bar-link>
-      <a class="button button-dark" id="contact" href="mailto:dyldougherty@gmail.com">Contact</a>
+      <nav-bar-link class="button button-dark" link="/#contact">Contact</nav-bar-link>
     </div>
     <div class="mobile">
       <div class="hamburger" v-if="!isOpen" @click="toggleMenu">
@@ -26,7 +26,8 @@
       <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#work">Work</nav-bar-link>
       <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#skills">Skills</nav-bar-link>
       <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#about">About</nav-bar-link>
-      <a class="button button-dark" id="contact" href="mailto:dyldougherty@gmail.com">Contact</a>
+      <nav-bar-link class="button button-dark" @click="toggleMenu" link="/#contact">Contact</nav-bar-link>
+
     </div>
   </div>
 </template>
@@ -55,7 +56,7 @@ onMounted(() => {
   z-index: 2000;
   background-color: var(--col-old-paper);
   position: fixed;
-  padding: 10px;
+  padding: 5px;
   left: 0px;
   right: 0px;
   top: 0px;
@@ -85,10 +86,21 @@ onMounted(() => {
   animation: grow 0.25s ease-in-out forwards;
 }
 
+.links{
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .mobile-link {
   opacity: 0;
   animation: fadeIn 0.25s ease-in-out forwards 0.1s;
   margin: 20px;
+}
+
+.button{
+  height: 50px;
+  margin-right: 0px;
 }
 
 /* mobile */
@@ -123,6 +135,7 @@ img {
   cursor: pointer;
   width: 25px;
   height: 25px;
+  margin-right: 10px;
 }
 
 .top,

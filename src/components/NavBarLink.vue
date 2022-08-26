@@ -20,6 +20,9 @@ a {
   font-size: 20px;
   margin-right: 30px;
   font-family: Lexend;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
