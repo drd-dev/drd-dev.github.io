@@ -67,7 +67,7 @@ const age = computed(() => {
         <h2>Work Experience</h2>
         <div class="jobs">
           <div class="job">
-            <h3>Software Developer <a href="https://thecocoon.com" target="_blank">@COCOON</a></h3>
+            <h3>Software Developer - <a href="https://thecocoon.com" target="_blank">@COCOON</a></h3>
             <h4>2021-Present</h4>
             <ul>
               <li>Develop software for use internally</li>
@@ -84,7 +84,7 @@ const age = computed(() => {
             </ul>
           </div>
           <div class="job">
-            <h3>Desktop Support Specialist <a href="https://cenero.com" target="_blank">@Cenero</a></h3>
+            <h3>Desktop Support Specialist - <a href="https://cenero.com" target="_blank">@Cenero</a></h3>
             <h4>2019-2021</h4>
             <ul>
               <li>Mantain windows systems of over 250 users</li>
@@ -177,15 +177,15 @@ hr {
 .jobs {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
   text-align: left;
   margin-top: 25px;
 }
 
 .job{
-  margin-bottom: 35px;
+  margin-bottom: 45px;
 }
 
 @media (max-width: 750px) {

@@ -3,7 +3,7 @@
   <img class="section-icon" src="@/assets/svg/emoji/mail.svg" alt="">
   <h1>Contact Me</h1>
   <div class="content">
-    <form action="">
+    <form action="https://formspree.io/f/xknegpwj" method="POST">
       <label for="name">Name</label>
       <input name="name" type="text" placeholder="Full Name">
       <label for="email">Email</label>

@@ -5,7 +5,6 @@
     <hr class="bg-orange">
     <hr class="bg-red">
   </div>  
-  <img class="icon" src="@/assets/images/projects/cocoon-qr/qr-code.svg" alt="">
   <h1 class="title">COCOON - QR</h1>
   <div class="subtitle">
     <p>A QR Code generator and manager.</p>
@@ -42,14 +41,17 @@
       <img class="box-shadow-normal" src="@/assets/images/projects/cocoon-qr/qr-created.png" alt="">
       <img class="box-shadow-normal" src="@/assets/images/projects/cocoon-qr/qr-manage.png" alt="">
       <img class="box-shadow-normal" src="@/assets/images/projects/cocoon-qr/qr-examine.png" alt="">
-      
     </div>
   </div>
+  <ImgModal image="../src/assets/images/projects/cocoon-qr/qr-manage.png"/>
 </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import ImgModal from "@/components/ImgModal.vue"
+import { onMounted, ref } from 'vue';
+
+const modalOpen = ref(false);
 
 onMounted(() => {
   window.scrollTo(0, 0);

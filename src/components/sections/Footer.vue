@@ -1,6 +1,6 @@
 <template>
 <div class="footer">
-  <div class="content">
+  <div class="con">
     <div class="left">
       <img src="@/assets/images/logo.svg" alt="">
       <div> &copy; Dylan Dougherty, {{year}}</div>
@@ -37,7 +37,7 @@ const year = ref(new Date().getFullYear());
   align-items: flex-end;
 }
 
-.content{
+.con{
   display: flex;
   justify-content: space-between;
   align-items: center;
