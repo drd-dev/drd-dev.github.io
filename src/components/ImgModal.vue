@@ -1,10 +1,13 @@
 <template>
-<div class="modal img-modal">
+<div class="modal img-modal" @click="emit('close')">
   <img :src="image" alt="">
 </div>
 </template>
 
 <script setup lang="ts">
+
+const emit = defineEmits(['close'])
+
 defineProps({
   image: String
 })
@@ -12,10 +15,35 @@ defineProps({
 
 <style scoped>
 .modal {
-  position: absolute;
-  left: 10;
-  right: 10;
-  bottom: 10;
-  top: 10;
+  cursor: pointer;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  z-index: 99999;
+  background-color: rgba(55, 55, 55, 0.279);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes grow{
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+img {
+  transform: scale(0);
+  transition: transform 0.25s;
+  animation-name: grow;
+  animation-fill-mode: forwards;
+  animation-duration: 0.1s;
+  width: 90%;
+  border-radius: 10px;
 }
 </style>
