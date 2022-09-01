@@ -21,9 +21,14 @@
 <style scoped>
 .contact {
   padding-top:80px;
+  background-color: var(--col-old-ink);
+  color: var(--col-old-paper);
+  padding-bottom: 80px;
 }
 
 form{
+  max-width: 900px;
+  margin: 0px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,7 +36,7 @@ form{
 
 input, textarea {
   border: none;
-  background-color: var(--col-old-ink);
+  background-color: var(--col-blue);
   color: var(--col-old-paper);
   font-family: Lexend;
   font-size: 20px;

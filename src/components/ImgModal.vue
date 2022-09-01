@@ -1,4 +1,5 @@
 <template>
+<div class="background"></div>
 <div class="modal img-modal" @click="emit('close')">
   <img :src="image" alt="">
 </div>
@@ -22,10 +23,21 @@ defineProps({
   bottom: 0px;
   top: 0px;
   z-index: 99999;
-  background-color: rgba(55, 55, 55, 0.279);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.background {
+  background-color: rgba(55, 55, 55, 0.59);
+  cursor: pointer;
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  filter: blur(100px);
+  z-index: 99999;  
 }
 
 @keyframes grow{

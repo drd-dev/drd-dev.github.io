@@ -34,6 +34,8 @@ import SkillBox from '@/components/SkillBox.vue';
 .skills {
   text-align: center;
   padding-top: 80px;
+  max-width: 1200px;
+  margin: 0px auto;
 }
 
 .content {

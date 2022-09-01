@@ -25,12 +25,24 @@ const router = createRouter({
     {
       path: "/projects/cocoon-qr",
       name: "cocooon-qr",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import("@/views/projects/CocoonQR.vue"),
 
     },
+    {
+      path: "/projects/cocoon-present",
+      name: "cocoon-present",
+      component: () => import("@/views/projects/CocoonPresent.vue"),
+    },
+    {
+      path: "/projects/pot",
+      name: "pot",
+      component: () => import("@/views/projects/PurchaseOrderTracker.vue"),
+    },
+    {
+      path: "/projects/social-study",
+      name: "social study",
+      component: () => import("@/views/projects/SocialStudy.vue"),
+    }
   ],
 });
 

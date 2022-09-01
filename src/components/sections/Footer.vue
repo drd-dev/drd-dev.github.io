@@ -24,7 +24,6 @@ const year = ref(new Date().getFullYear());
 
 <style scoped>
 .footer{
-  min-height: 100px;
   color: var(--col-old-paper);
   background-color: var(--col-old-ink);
   font-family: Lexend;

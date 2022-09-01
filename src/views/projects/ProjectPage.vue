@@ -1,39 +1,54 @@
 <template>
   <div class="cocoon-qr">
     <ImgModal v-if="modalURL != ''" :image="modalURL" v-on:close="modalURL = ''"/>
-    <div class="lines">
-      <hr class="bg-blue" />
-      <hr class="bg-orange" />
-      <hr class="bg-red" />
+    <HLines></HLines>
+    <div class="hero">
+      <h1 class="title">{{ title }}</h1>
+      <p class="subtitle">{{ subtitle }}</p>
+      <img class="hero-image" :src="coverImage" @click="openModal(coverImage)" alt="" style="border-radius: 10px;"/>
+      <hr class="divider" />
     </div>
-    <h1 class="title">{{title}}</h1>
-      <p class="subtitle">{{subtitle}}</p>
-    <img class="hero-image" :src="coverImage" @click="openModal(coverImage)" alt="" />
-    <div class="main">
+    <div class="main content">
       <div class="left">
         <div class="about">
           <h2>About</h2>
-          <p>{{about}}</p>
+          <slot></slot>
         </div>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center">
-          <div class="tech box-shadow-normal">
-            <h2>Tech Used</h2>
-            <div class="tech-tags">
-              <Tag v-for="t in tech">{{t}}</Tag>
+        <div class="info-boxes">
+          <div>
+
+        <h2 style="margin-top: 0px;"><img class="icon" src="@/assets/svg/emoji/paper.svg" alt="icon">Main Features</h2>
+            <div class="tags">
+              <Tag v-for="f in features">{{ f }}</Tag>
             </div>
           </div>
-          <div class="features box-shadow-normal">
-            <h2>Features</h2>
-            <ul>
-              <li v-for="f in features">{{f}}</li>
-            </ul>
+
+          <h2><img class="icon" src="@/assets/svg/emoji/gear.svg" alt="icon">Tech Used</h2>
+          <div class="tags">
+            <Tag v-for="t in tech">{{ t }}</Tag>
+          </div>
+          <div>
+            <h2><img class="icon" src="@/assets/svg/emoji/disk.svg" alt="icon">Try it out</h2>
+            <a class="url" v-if="demoURL" :href="demoURL" target="_blank">Click Here</a>
+            <p v-else>Not Available</p>
+          </div>
+          <div>
+            <h2><img class="icon" src="@/assets/svg/emoji/computer.svg" alt="icon">Source Code</h2>
+            <a class="url" v-if="sourceURL" :href="sourceURL" target="_blank">Click Here</a>
+            <p v-else>Not Available</p>
           </div>
         </div>
       </div>
       <div class="right">
         <div class="images">
           <h2>Screenshots</h2>
-          <img class="box-shadow-normal" v-for="s in screenshots" :src="s" @click="openModal(s)" alt="" />
+          <img
+            class="screenshot-image box-shadow-normal"
+            v-for="s in screenshots"
+            :src="s"
+            @click="openModal(s)"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -43,47 +58,43 @@
 <script setup lang="ts">
 import { onMounted, ref, type PropType } from "vue";
 import Tag from "@/components/Tag.vue";
-import ImgModal from "@/components/ImgModal.vue"
+import ImgModal from "@/components/ImgModal.vue";
+import HLines from "../../components/HLines.vue";
 
-const modalURL = ref('');
+const modalURL = ref("");
 
 onMounted(() => {
   window.scrollTo(0, 0);
 });
 
-
-const props =  defineProps({
-  title:  {
-    type:  String,
-    default: 'New Project'
+const props = defineProps({
+  title: {
+    type: String,
+    default: "New Project",
   },
   subtitle: {
-    type:String,
-    default: 'A new Project'
+    type: String,
+    default: "A new Project",
   },
   demoURL: String,
   sourceURL: String,
   coverImage: {
     type: String,
-    default: ''
+    default: "",
   },
   about: String,
   tech: Array,
   features: Array,
   screenshots: {
     type: Array as PropType<Array<string>>,
-    default: []
+    default: [],
   },
-
-})
-
+});
 
 function openModal(imageURL: string) {
-  modalURL.value = imageURL
+  modalURL.value = imageURL;
   console.log(modalURL.value);
-  
 }
-
 </script>
 
 <style scoped>
@@ -93,31 +104,55 @@ function openModal(imageURL: string) {
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  margin-left: 50px;
-  margin-right: 50px;
   margin-top: 80px;
-  margin: 80px 50px 50px 80px;
+}
+
+.url{
+  font-family: lexend;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 60px;
+  max-width: 900px;
 }
 
 .about {
   border-radius: 10px;
   padding: 20px;
+  text-align: left;
 }
 
-.tech, .features {
+.icon {
+  height: 25px;
+  margin-right: 6px;
+}
+
+.info-boxes h2 {
+  margin-top: 20px;
+}
+
+.info-boxes {
   background-color: var(--col-old-ink);
-  padding: 30px;
-  border-radius: 10px;
   color: var(--col-old-paper);
-  max-width: 400px;
-  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+  text-align: left;
 }
 
-.tech-tags {
+.tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
+  justify-content: flex-start;
 }
 
 .tag {
@@ -129,34 +164,39 @@ function openModal(imageURL: string) {
   flex-direction: column;
 }
 
-img {
+.screenshot-image {
   width: 300px;
   margin: 10px;
   border-radius: 10px;
   cursor: pointer;
 }
 
-hr {
-  width: 100%;
-  border: 0;
-  height: 8px;
-  margin-bottom: 5px;
-}
-
 .hero-image {
-  width: 50%;
+  width: 60%;
 }
 
-@media only screen and (max-width: 750px){
-  .hero-image{
+@media only screen and (max-width: 750px) {
+}
+
+@media only screen and (max-width: 1150px) {
+  .main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-image {
     width: 95%;
   }
 
-  .main{
-    flex-direction: column;
-    text-align: center;
-    margin: 0px;
+  .left {
     align-items: center;
+    justify-content: center;
+    margin: 0px;
+  }
+
+  .screenshot-image {
+    width: 95%;
   }
 }
 </style>

@@ -18,6 +18,16 @@
       <div class="projects">
         <ProjectCard
           class="project-card"
+          title="Social Study"
+          year="2019"
+          description="A collaborative learning tool for students that includes note taking, practice quizzes, live chat, calendar, flash cards, and more."
+          image="https://i.ibb.co/MkCzmMH/social-Study.gif"
+          :tech="['HTML/CSS', 'JavaScript', 'Vue', 'Firebase']"
+          link="/projects/social-study"
+          source="https://github.com/Social-Study/social-study"
+        />        
+        <ProjectCard
+          class="project-card"
           title="COCOON-QR"
           year="2022"
           description="A QR Code management system that features a QR-code generator with customization options such as images and colors, Dynamic URL management, and basic tracking."
@@ -30,6 +40,7 @@
           title="COCOON-Present"
           year="2022"
           description="Specialized presentation software for showing slideshows on three seperate screens."
+          link="/projects/cocoon-present"
           image="src/assets/images/projects/present/present.png"
           :tech="['HTML/CSS', 'JavaScript', 'Electron']"
         />
@@ -38,18 +49,9 @@
           title="Purchase Order Tracker"
           year="2020"
           description="Custom Web App for tracking purchase orders, and future purchases. Tracks dates, suppiers, tracking numbers, invoices, stores files, and more."
+          link="/projects/pot"
           image="src/assets/images/projects/pot/pot.png"
           :tech="['HTML/CSS', 'JavaScript', 'Vue', 'nest.js']"
-        />
-        <ProjectCard
-          class="project-card"
-          title="Social Study"
-          year="2019"
-          description="A collaborative learning tool for students that includes note taking, practice quizzes, live chat, calendar, flash cards, and more."
-          image="https://i.ibb.co/MkCzmMH/social-Study.gif"
-          :tech="['HTML/CSS', 'JavaScript', 'Vue', 'Firebase']"
-          link="https://socialstudy.app"
-          source="https://github.com/Social-Study/social-study"
         />
         </div>     
         
@@ -178,7 +180,6 @@ hr {
   width: 22px;
   right: 0px;
 }
-
 
 p {
   color: var(--col-old-paper);

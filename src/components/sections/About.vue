@@ -24,7 +24,7 @@ const age = computed(() => {
           drawing, graphic design, and now programming. Whatever the medium, my love for creating has always been fueled
           by the ability to share what I've built with others.
         </p>
-        <hr />
+        <hr class="divider" />
         <div class="who">
           <img class="section-icon" src="@/assets/svg/emoji/person.svg" alt="" />
           <h2>General Info</h2>
@@ -34,8 +34,8 @@ const age = computed(() => {
             When: <span>Born 1997 ({{ age }} Years Old)</span>
           </div>
           <div class="info">Where: <span>West Chester, PA</span></div>
-          <div class="info">Why: <span>???</span></div>
-          <hr />
+          <div class="info">Why: <span>To create</span></div>
+          <hr class="divider" />
         </div>
         <div class="edu">
           <img class="section-icon" src="@/assets/svg/emoji/gradCap.svg" alt="" />
@@ -61,7 +61,7 @@ const age = computed(() => {
       <img class="right box-shadow-normal" src="@/assets/images/General/profile_pic.jpg" alt="Profile Picutre" />
     </div>
     <div class="content bottom-content">
-      <hr/>
+      <hr class="divider"/>
       <div class="experience">
         <img class="section-icon" src="@/assets/svg/emoji/briefcase.svg" alt="" />
         <h2>Work Experience</h2>
@@ -80,15 +80,17 @@ const age = computed(() => {
             <h3>Independent Game Developer</h3>
             <h4>2019-present</h4>
             <ul>
-              <li>Developed FLYTA</li>
+              <li>Develop games using Unity (C#) and Godot (GdScript)</li>
+              <li>Market games on google adsense, snapchat, and instagram</li>
+              <li>Manage and maintain games with updates</li>
             </ul>
           </div>
           <div class="job">
             <h3>Desktop Support Specialist - <a href="https://cenero.com" target="_blank">@Cenero</a></h3>
             <h4>2019-2021</h4>
             <ul>
-              <li>Mantain windows systems of over 250 users</li>
-              <li>Develop software for use within I.T.</li>
+              <li>Mantain windows systems for over 250 users</li>
+              <li>Develop custom software for aid within the IT department</li>
               <li>Perform admin duties in microsoft 365 products</li>
               <li>Handle IT related purchasing</li>
               <li>Manage account relations with companies such as Verizon</li>
@@ -112,6 +114,7 @@ const age = computed(() => {
         <Tag>Coffee</Tag>
         <Tag>Mechanical Keyboards</Tag>
         <Tag>Digital Art</Tag>
+        <Tag>Video Games</Tag>
       </div>
     </div>
   </div>
@@ -149,14 +152,6 @@ li {
 }
 
 .lines {
-  width: 100%;
-}
-
-hr {
-  border: none;
-  height: 3px;
-  background-color: var(--col-old-pencil);
-  margin: 20px 0px 20px 0px;
   width: 100%;
 }
 
@@ -211,6 +206,7 @@ hr {
   min-width: 350px;
   border-radius: 10px;
   font-size: 18px;
+  
 }
 
 h3 {
@@ -240,6 +236,7 @@ h3 {
 }
 ul {
   list-style-type: none;
+  list-style-image: url('@/assets/svg/emoji/arrow.svg');
 }
 
 .info {
