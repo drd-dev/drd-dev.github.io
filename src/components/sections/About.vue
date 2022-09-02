@@ -203,7 +203,7 @@ li {
   background-color: var(--col-old-ink);
   color: var(--col-old-paper);
   padding: 20px;
-  min-width: 350px;
+  min-width: 250px;
   border-radius: 10px;
   font-size: 18px;
   

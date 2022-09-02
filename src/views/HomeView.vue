@@ -97,7 +97,7 @@ img{
   flex-direction: row;
   justify-content: space-between;
   margin-top: 20px;
-  width: 100%;
+  width: 90%;
   white-space: nowrap;
   margin-bottom: 50px;
 }
@@ -109,7 +109,7 @@ img{
     align-items: center;
   }
   .button {
-    margin: 20px;
+    margin-top: 40px;
     width: 300px;
   } 
 }

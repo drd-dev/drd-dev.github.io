@@ -4,23 +4,15 @@
       <h2 class="title">{{ title }}</h2>
       <h5>{{ year }}</h5>
     </div>
-    <a v-if="link" :href="link">
-      <img class="image" :src="image" alt="" />
-    </a>
-    <img v-else class="image" :src="image" alt="">
+    <img class="image" :src="image" alt="">
     <div v-element-visibility="onScroll" class="bottom">
     <div class="info">
       <div class="card box-shadow-normal">
         <p id="desc">{{ description }}</p>
+        <a class="button button-dark" :href="link">Explore</a>
       </div>
       <div class="bottom-text">
-        <div class="tech">
           <span class="tech-entry" v-for="t in tech">{{ t }}</span>
-        </div>
-        <div style="display: flex; justify-content: center; align-items: center">
-          <a v-if="source" :href="source"><img class="link" src="@/assets/svg/gitHub.svg" style="width: 25px; margin-right: 5px;" alt="Source Code Link"></a>
-          <a v-if="link" :href="link"><img class="link" src="@/assets/svg/link.svg" alt="Eternal Link"></a>
-        </div>
       </div>
     </div>
     </div>
@@ -131,17 +123,19 @@ img {
 
 .bottom-text{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.tech{
-  display: flex;
   justify-content: flex-start;
+  align-items: center;
   font-size: 14px;
 }
 .tech-entry {
   margin: 8px;
+}
+
+.button {
+  width: 150px;
+  margin-top: 25px;
+  margin-left: auto;
+  border-radius: 10px;
 }
 
 .link {
@@ -163,14 +157,14 @@ img {
   }
 
   img {
-    width: 375px;
+    width: 90%;
     height: 200px;
     filter: grayscale(0%);
   }
 
   .info {
     bottom: 0px;
-    width: 300px;
+    width: 90%
   }
   .bottom-text{
     display: none;
@@ -178,6 +172,12 @@ img {
 
   #desc {
     font-size: 15px;
+  }
+
+  .button {
+    width: 90%;
+    margin: 0px auto;
+    margin-top: 25px;
   }
 }
 </style>

@@ -3,31 +3,20 @@
   <div class="con">
     <div class="left">
       <img src="@/assets/images/logo.svg" alt="">
-      <div> &copy; Dylan Dougherty, {{year}}</div>
+      <div> &copy; Dylan Dougherty, {{new Date().getFullYear()}}</div>
     </div>
     <div class="right">
-      <a class="button button-light" href="mailto:dyldougherty@gmail.com">Contact Me</a>
       <a class="info" href="">View Source Code</a>
     </div>
   </div>
 </div>
 </template>
 
-
-<script setup lang="ts">
-import {ref} from 'vue';
-
-
-const year = ref(new Date().getFullYear());
-
-</script>
-
 <style scoped>
 .footer{
   color: var(--col-old-paper);
   background-color: var(--col-old-ink);
   font-family: Lexend;
-
 }
 
 .left {
@@ -53,7 +42,7 @@ img{
 }
 
 @media only screen and (max-width: 750px) {
-  .content {
+  .con {
     padding-top: 50px;
     flex-direction: column;
     align-items: center;
