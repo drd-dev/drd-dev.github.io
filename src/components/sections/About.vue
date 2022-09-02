@@ -16,13 +16,17 @@ const age = computed(() => {
     <h1 style="margin-bottom: 80px">About Me</h1>
     <div class="content">
       <div class="left">
+        <img
+          class="top-img profile box-shadow-normal"
+          src="@/assets/images/General/profile_pic.jpg"
+          alt="Profile Picutre"
+        />
         <h2>A Passion For Creation</h2>
-        <p>I believe that through the power of technology and code, incredible experiences can be brought to life.</p>
+        <p style="font-style: italic;">I believe that through the power of technology and code, incredible experiences can be brought to life.</p>
         <br />
         <p>
-          Growing up, I’ve always loved the act of creating. It started with legos as a child and evolved to ceramics,
-          drawing, graphic design, and now programming. Whatever the medium, my love for creating has always been fueled
-          by the ability to share what I've built with others.
+          Growing up, I've always had a strong passion for creation. It began simple with lego sets, then quickly evolved into arts, electronics, and now programming.
+          I truly believe that through the power of good technology, magical expierences can be brought into the world by those gifted enough to craft them.
         </p>
         <hr class="divider" />
         <div class="who">
@@ -40,12 +44,9 @@ const age = computed(() => {
         <div class="edu">
           <img class="section-icon" src="@/assets/svg/emoji/gradCap.svg" alt="" />
           <h2>Education</h2>
-          <div class="edu-card box-shadow-normal">
+          <div class="edu-card">
             <div class="top">
-              <a href="https://kutztown.edu" target="_blank"
-                ><img class="ku-logo" src="@/assets/svg/KU.svg" alt="Kutztown University Logo"
-              /></a>
-              <h4>2015-2019</h4>
+              <a href="https://kutztown.edu" target="_blank"><h3 style="color: var(--col-red); display: inline;">Kutztown University</h3><h4 style="color: var(--col-old-pencil); display: inline;">&nbsp;2015-2019</h4></a>
             </div>
             <div class="bottom">
               <ul>
@@ -58,10 +59,14 @@ const age = computed(() => {
           </div>
         </div>
       </div>
-      <img class="right box-shadow-normal" src="@/assets/images/General/profile_pic.jpg" alt="Profile Picutre" />
+      <img
+        class="profile right box-shadow-normal"
+        src="@/assets/images/General/profile_pic.jpg"
+        alt="Profile Picutre"
+      />
     </div>
     <div class="content bottom-content">
-      <hr class="divider"/>
+      <hr class="divider" />
       <div class="experience">
         <img class="section-icon" src="@/assets/svg/emoji/briefcase.svg" alt="" />
         <h2>Work Experience</h2>
@@ -151,6 +156,10 @@ li {
   font-size: 20px;
 }
 
+.top-img {
+  display: none;
+}
+
 .lines {
   width: 100%;
 }
@@ -160,6 +169,9 @@ li {
   position: sticky;
   top: 0;
   align-self: flex-start;
+}
+
+.profile {
   margin-left: 80px;
   object-fit: cover;
   border-radius: 100px;
@@ -179,34 +191,8 @@ li {
   margin-top: 25px;
 }
 
-.job{
+.job {
   margin-bottom: 45px;
-}
-
-@media (max-width: 750px) {
-  .content {
-    text-align: center;
-    flex-direction: column;
-  }
-  .right {
-    margin: 30px;
-    margin-top: 30px;
-    align-self: center;
-  }
-}
-
-.edu-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--col-old-ink);
-  color: var(--col-old-paper);
-  padding: 20px;
-  min-width: 250px;
-  border-radius: 10px;
-  font-size: 18px;
-  
 }
 
 h3 {
@@ -216,27 +202,14 @@ h3 {
   font-size: 25px;
 }
 
-.top {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 35px;
-}
 
 .bottom {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
 }
-
-.ku-logo {
-  margin-right: 0px;
-  width: 225px;
-}
 ul {
-  list-style-type: none;
-  list-style-image: url('@/assets/svg/emoji/arrow.svg');
+  list-style-image: url("@/assets/svg/emoji/arrow.svg");
 }
 
 .info {
@@ -253,8 +226,22 @@ ul {
 }
 
 @media only screen and (max-width: 750px) {
+  .content {
+    text-align: center;
+    flex-direction: column;
+  }
   .hobbies {
     justify-content: center;
+  }
+  .right {
+    display: none;
+  }
+
+  .top-img {
+    display: block;
+    position: static;
+    margin: 0px auto;
+    margin-bottom: 50px;
   }
 }
 

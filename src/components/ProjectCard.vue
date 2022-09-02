@@ -70,7 +70,7 @@ function onScroll(state: boolean) {
 .project-card{
   opacity: 0;
   transition: opacity 0.5s, transform 0.25s ease-in-out;
-
+  /* height: 500px; */
 }
 
 .visible{
@@ -82,14 +82,13 @@ img {
   height: 350px;
   border-radius: 10px;
   filter: grayscale(100%);
-  cursor: pointer;
   object-fit: cover;
   transition: all 0.25s ease-in-out;
 }
 
 @media (hover: hover) {
-  img:hover {
-    filter: grayscale(0%);
+  .project-card:hover > img{
+    filter:grayscale(0);
   }
 }
 .title {
@@ -138,18 +137,6 @@ img {
   border-radius: 10px;
 }
 
-.link {
-  width: 35px;
-  height: auto;
-  filter: invert(93%) sepia(13%) saturate(552%) hue-rotate(335deg) brightness(99%) contrast(94%);
-}
-
-@media (hover: hover){
-  .link:hover {
-   filter: invert(47%) sepia(27%) saturate(6319%) hue-rotate(331deg) brightness(97%) contrast(94%);
-  }
-}
-
 @media only screen and (max-width: 750px) {
 
   .title{
@@ -168,10 +155,6 @@ img {
   }
   .bottom-text{
     display: none;
-  }
-
-  #desc {
-    font-size: 15px;
   }
 
   .button {
