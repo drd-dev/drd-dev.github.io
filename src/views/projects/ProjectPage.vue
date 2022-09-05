@@ -175,7 +175,14 @@ function openModal(imageURL: string) {
   width: 60%;
 }
 
-@media only screen and (max-width: 750px) {
+img { 
+  transition: transform 0.25s;
+}
+
+@media (hover:hover){
+  img:hover {
+    transform: scale(1.025);
+  }
 }
 
 @media only screen and (max-width: 1150px) {

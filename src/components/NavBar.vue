@@ -21,12 +21,12 @@
         <div class="right"></div>
       </div>
     </div>
-    <div class="menu box-shadow-normal" v-if="isOpen">
-      <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#home">Home</nav-bar-link>
-      <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#work">Work</nav-bar-link>
-      <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#skills">Skills</nav-bar-link>
-      <nav-bar-link class="mobile-link link" @click="toggleMenu" link="/#about">About</nav-bar-link>
-      <nav-bar-link class="button button-dark" @click="toggleMenu" link="/#contact">Contact</nav-bar-link>
+    <div class="menu box-shadow-normal" :class="{visible: isOpen, hidden: !isOpen}">
+      <nav-bar-link class="mobile-link link" :class="{'link-visible': isOpen, 'link-hidden': !isOpen}" @click="toggleMenu" link="/#home">Home</nav-bar-link>
+      <nav-bar-link class="mobile-link link" :class="{'link-visible': isOpen, 'link-hidden': !isOpen}" @click="toggleMenu" link="/#work">Work</nav-bar-link>
+      <nav-bar-link class="mobile-link link" :class="{'link-visible': isOpen, 'link-hidden': !isOpen}" @click="toggleMenu" link="/#skills">Skills</nav-bar-link>
+      <nav-bar-link class="mobile-link link" :class="{'link-visible': isOpen, 'link-hidden': !isOpen}" @click="toggleMenu" link="/#about">About</nav-bar-link>
+      <nav-bar-link class="button button-dark" :class="{'link-visible': isOpen, 'link-hidden': !isOpen}" @click="toggleMenu" link="/#contact">Contact</nav-bar-link>
 
     </div>
   </div>
@@ -83,7 +83,23 @@ onMounted(() => {
   top: 50px;
   height: 0px;
   background-color: var(--col-old-paper);
+  overflow: hidden;
+}
+
+.visible {
   animation: grow 0.25s ease-in-out forwards;
+}
+
+.hidden {
+  animation: shrink 0.25s ease-in-out forwards;
+}
+
+.link-visible { 
+  animation: fadeIn 0.25s ease-in-out forwards 0.1s;
+}
+
+.link-hidden {
+  animation: fadeOut 0.25s ease-in-out forwards 0.1s;
 }
 
 .links{
@@ -93,15 +109,13 @@ onMounted(() => {
 }
 
 .mobile-link {
-  opacity: 0;
-  animation: fadeIn 0.25s ease-in-out forwards 0.1s;
   margin: 20px;
 }
 
 .button{
   height: 50px;
   margin: 0px auto;
-  width: 250px;
+  max-width: 250px;
 }
 
 /* mobile */
@@ -137,6 +151,7 @@ img {
   width: 25px;
   height: 25px;
   margin-right: 10px;
+  user-select: none;
 }
 
 .top,
@@ -167,32 +182,44 @@ img {
   top: 50%;
   transform: rotate(-45deg);
 }
-
-@keyframes grow {
-  0% {
-    height: 0px;
-  }
-  100% {
-    height: 500px;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .link{
   color: var(--col-old-ink);
   text-decoration: none;
 }
+
+
+
+/* queries */
 @media(hover:hover){
   .link:hover{
     color: var(--col-red) !important;
   }
 }
+
+@media only screen and (max-width: 750px) {
+  .button{
+    width: 250px;
+  }
+}
+
+
+/* animations */
+@keyframes grow {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 50vh;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    height: 50vh;
+  }
+  100% {
+    height: 0px;
+  }
+}
+
 </style>

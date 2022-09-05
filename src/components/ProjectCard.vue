@@ -4,17 +4,17 @@
       <h2 class="title">{{ title }}</h2>
       <h5>{{ year }}</h5>
     </div>
-    <img class="image" :src="image" alt="">
+    <img class="image" :src="image" alt="" />
     <div v-element-visibility="onScroll" class="bottom">
-    <div class="info">
-      <div class="card box-shadow-normal">
-        <p id="desc">{{ description }}</p>
-        <a class="button button-dark" :href="link">Explore</a>
-      </div>
-      <div class="bottom-text">
+      <div class="info">
+        <div class="card box-shadow-normal">
+          <p id="desc">{{ description }}</p>
+          <a class="button button-dark" :href="link">Explore</a>
+        </div>
+        <div class="bottom-text">
           <span class="tech-entry" v-for="t in tech">{{ t }}</span>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -67,13 +67,12 @@ function onScroll(state: boolean) {
 </script>
 
 <style scoped>
-.project-card{
+.project-card {
   opacity: 0;
   transition: opacity 0.5s, transform 0.25s ease-in-out;
-  /* height: 500px; */
 }
 
-.visible{
+.visible {
   opacity: 1;
 }
 
@@ -87,8 +86,8 @@ img {
 }
 
 @media (hover: hover) {
-  .project-card:hover > img{
-    filter:grayscale(0);
+  .project-card:hover > img {
+    filter: grayscale(0);
   }
 }
 .title {
@@ -120,7 +119,7 @@ img {
   color: var(--col-old-paper);
 }
 
-.bottom-text{
+.bottom-text {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -138,8 +137,7 @@ img {
 }
 
 @media only screen and (max-width: 750px) {
-
-  .title{
+  .title {
     justify-content: center;
   }
 
@@ -151,9 +149,9 @@ img {
 
   .info {
     bottom: 0px;
-    width: 90%
+    width: 90%;
   }
-  .bottom-text{
+  .bottom-text {
     display: none;
   }
 

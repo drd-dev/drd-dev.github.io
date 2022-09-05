@@ -31,6 +31,7 @@
           title="COCOON-QR"
           year="2022"
           description="A QR Code management system."
+          link="/projects/cocoon-qr"
           image="src/assets/images/projects/cocoon-qr/qr-created.png"
           :tech="['HTML/CSS', 'Firebase', 'Vue']"
         /> 
