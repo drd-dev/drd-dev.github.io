@@ -80,7 +80,7 @@ onMounted(() => {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  top: 60px;
+  top: 50px;
   height: 0px;
   background-color: var(--col-old-paper);
   animation: grow 0.25s ease-in-out forwards;
@@ -100,7 +100,8 @@ onMounted(() => {
 
 .button{
   height: 50px;
-  margin-right: 0px;
+  margin: 0px auto;
+  width: 250px;
 }
 
 /* mobile */

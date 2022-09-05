@@ -7,7 +7,7 @@
       <h2>I <img style="height: 25px;" src="@/assets/svg/emoji/heart.svg" alt=""> Web Tech.</h2>
       <p>I enjoy creating applications with modern web technologies. I love the speed, and efficency that web apps provide, as well as the code once, deploy anywhere capabilities.</p>
       <br>
-      <p>In my off-time, I also like to develop small games using the Unity and Godot game engines as well as doing some light graphic design.</p>
+      <p>I believe that JavaScript is the future of development for most applications due to its flexability and ease of use.</p>
     </div>
     <div class="list">
       <SkillBox text="HTML" icon="src/assets/svg/skills/html.svg" :startYear="2016" link="https://developer.mozilla.org/en-US/docs/Web/HTML"></skillBox>
