@@ -67,6 +67,10 @@ h2 {
   color: var(--old-ink);
 }
 
+.text-red {
+  color: var(--col-red);
+}
+
 /* background colors */
 .bg-blue {
   background: var(--col-blue);

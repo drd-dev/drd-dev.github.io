@@ -16,7 +16,7 @@ import Contact from "../components/sections/Contact.vue"
       <div class="hello">
         <img id="wave" src="@/assets/svg/emoji/wave.svg" alt="">
         <div style="display: flex;">
-          <h1 id="hello-world">Hello World </h1>
+          <h1 id="hello-world">Hello World;</h1>
           <ColorBoxes/>
         </div>
         <p>I’m Dylan, a Pennsylvania based Software Developer who believes in using the power of thoughtful code and design to bring incredible experiences to life.</p>
