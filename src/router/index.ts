@@ -17,31 +17,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/",
-      name: "homeNoScroll",
-      component: HomeView,
-      meta: {noScroll: true}
-    },
-    {
-      path: "/projects/cocoon-qr",
-      name: "cocooon-qr",
-      component: () => import("@/views/projects/CocoonQR.vue"),
-
-    },
-    {
-      path: "/projects/cocoon-present",
-      name: "cocoon-present",
-      component: () => import("@/views/projects/CocoonPresent.vue"),
-    },
-    {
-      path: "/projects/pot",
-      name: "pot",
-      component: () => import("@/views/projects/PurchaseOrderTracker.vue"),
-    },
-    {
-      path: "/projects/social-study",
-      name: "social study",
-      component: () => import("@/views/projects/SocialStudy.vue"),
+      path: "/projects/:id",
+      name: "Projects",
+      component: () => import("@/views/projects/ProjectPage.vue")
     }
   ],
 });

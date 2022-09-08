@@ -8,102 +8,105 @@
     <div class="lines right">
       <hr class="bg-blue" />
       <hr class="bg-orange" />
-      <hr class="bg-red" />      
+      <hr class="bg-red" />
     </div>
     <div class="">
       <img class="section-icon" src="@/assets/svg/emoji/folder.svg" alt="" />
       <h1 class="text-light">My Work</h1>
-      <img style="margin-top: 50px;" class="icon" src="@/assets/svg/emoji/globe.svg" alt="">
-      <h2>Web</h2>
+      <img src="@/assets/svg/emoji/globe.svg" alt="globe emoji" style="margin-top: 50px" />
+      <h2 style="margin-bottom: 30px">Web</h2>
       <div class="projects">
         <ProjectCard
+          v-for="p in webProjects"
           class="project-card"
-          title="Social Study"
-          year="2019"
-          description="A collaborative learning tool for students."
-          image="https://i.ibb.co/MkCzmMH/social-Study.gif"
-          :tech="['HTML/CSS', 'JavaScript', 'Vue', 'Firebase']"
-          link="/projects/social-study"
-          source="https://github.com/Social-Study/social-study"
-        />        
-        <ProjectCard
-          class="project-card"
-          title="COCOON-QR"
-          year="2022"
-          description="A QR Code management system."
-          link="/projects/cocoon-qr"
-          image="src/assets/images/projects/cocoon-qr/qr-created.png"
-          :tech="['HTML/CSS', 'Firebase', 'Vue']"
-        /> 
-        <ProjectCard
-          class="project-card"
-          title="COCOON-Present"
-          year="2022"
-          description="Specialized presentation software."
-          link="/projects/cocoon-present"
-          image="src/assets/images/projects/present/present.png"
-          :tech="['HTML/CSS', 'JavaScript', 'Electron']"
+          :title="p.title"
+          :year="p.year"
+          :description="p.description"
+          :image="p.coverImage"
+          :tech="p.tech"
+          :link="`/projects/${p.id}`"
         />
-        <ProjectCard
-          class="project-card"
-          title="Purchase Order Tracker"
-          year="2020"
-          description="App for tracking purchase orders."
-          link="/projects/pot"
-          image="src/assets/images/projects/pot/pot.png"
-          :tech="['HTML/CSS', 'JavaScript', 'Vue', 'nest.js']"
-        />
-        </div>     
-        
-      <img class="icon" src="@/assets/svg/emoji/controller.svg" alt=""/>        
-      <h2>Games</h2>
+      </div>
+      <img src="@/assets/svg/emoji/controller.svg" alt="controller emoji" style="margin-top: 50px" />
+      <h2 style="margin-bottom: 30px">Games</h2>
       <div class="projects">
         <ProjectCard
+          v-for="p in gameProjects"
           class="project-card"
-          title="The Great Machine"
-          year="2021"
-          description="A game about digging a hole. Made in 48 hours."
-          image="src/assets/images/projects/greatMachine/TGM.gif"
-          :tech="['Godot', 'GdScript']"
-          link="https://zeoxo.itch.io/the-great-machine-ldjam48"
-          source="https://github.com/drd-dev/the-great-machine"
+          :title="p.title"
+          :year="p.year"
+          :description="p.description"
+          :image="p.coverImage"
+          :tech="p.tech"
+          :link="`/projects/${p.id}`"
         />
-        <ProjectCard
-          class="project-card"
-          title="FLYTA"
-          year="2021"
-          description="A game about a lost spaceman."
-          image="src/assets/images/projects/flyta/flyta.gif"
-          :tech="['Unity', 'C#', 'XCode']"
-          link="https://flytagame.com/"
-        />
-        <ProjectCard
-          class="project-card"
-          title="Paper or Plastic"
-          year="2017/2019"
-          description="A game about catching groceries."
-          image="https://img.itch.zone/aW1nLzU0ODEyMTEuZ2lm/original/BOKXz5.gif"
-          :tech="['Godot', 'GdScript', 'GameMaker']"
-          link="https://zeoxo.itch.io/pop"
-          source="https://github.com/drd-dev/paper-or-plastic-godot"
-        />
-        <ProjectCard
-          class="project-card"
-          title="Slap Fight"
-          year="2017"
-          description="A Game about Slapping your opponent."
-          image="src/assets/images/projects/slapFight/slapFight.gif"
-          :tech="['GameMaker']"
-          link="https://zeoxo.itch.io/slap-fight"
-          source="https://github.com/drd-dev/slap-fight"
-        />
-      </div>   
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import ProjectCard from "@/components/ProjectCard.vue";
+import { onMounted, ref } from "vue";
+
+const webProjects: any = ref([]);
+const gameProjects: any = ref([]);
+
+onMounted(() => {
+  getContent();
+});
+
+async function getContent() {
+  //get list of projects in the CDN
+  const res = await fetch("https://berowra.zeoxo.deta.app/api/collection/klkqa7a8shtv", {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  });
+  const projectList = await res.json();
+
+  //get details for each project
+  projectList.items.forEach(async (project: any) => {
+    const url = `https://berowra.zeoxo.deta.app/api/content/${project.key}`;
+    const projectRaw = await fetch(url, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json;charset=utf-8",
+      },
+    });
+    const projectInfo = await projectRaw.json();
+
+    //convert project data to a js object and push it to the array of objects
+    const projectData = {
+      id: project.key,
+      title: projectInfo.title,
+      description: getObjectByTitle(projectInfo.content, "description").value,
+      coverImage:
+        `https://berowra.zeoxo.deta.app/file/${getObjectByTitle(projectInfo.content, "cover_image")?.value[0]}` || null,
+      tech: getObjectByTitle(projectInfo.content, "tech").value,
+      year: getObjectByTitle(projectInfo.content, "creation_year").value,
+      type: getObjectByTitle(projectInfo.content, "type").value,
+    };
+
+    //sort the project into the correct list
+    if (projectData.type == "web") {
+      webProjects.value.push(projectData);
+    } else {
+      gameProjects.value.push(projectData);
+    }
+  });
+}
+
+function getObjectByTitle(source: any, value: String): any | undefined {
+  for (let i in source) {
+    if (source[i].title == value) {
+      return source[i];
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -195,10 +198,8 @@ p {
     margin-bottom: 30px;
   }
 
-  .lines{
+  .lines {
     display: none;
   }
 }
-
-
 </style>

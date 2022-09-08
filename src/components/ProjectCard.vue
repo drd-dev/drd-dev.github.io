@@ -51,10 +51,6 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  source: {
-    type: String,
-    default: "",
-  },
 });
 
 const card = ref(null);
