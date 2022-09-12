@@ -17,28 +17,20 @@
       <h2 style="margin-bottom: 30px">Web</h2>
       <div class="projects">
         <ProjectCard
+          v-if="webProjects"
           v-for="p in webProjects"
           class="project-card"
-          :title="p.title"
-          :year="p.year"
-          :description="p.description"
-          :image="p.coverImage"
-          :tech="p.tech"
-          :link="`/projects/${p.id}`"
+          :projectID="p.id"
         />
       </div>
       <img src="@/assets/svg/emoji/controller.svg" alt="controller emoji" style="margin-top: 50px" />
       <h2 style="margin-bottom: 30px">Games</h2>
       <div class="projects">
         <ProjectCard
+          v-if="gameProjects"
           v-for="p in gameProjects"
           class="project-card"
-          :title="p.title"
-          :year="p.year"
-          :description="p.description"
-          :image="p.coverImage"
-          :tech="p.tech"
-          :link="`/projects/${p.id}`"
+          :projectID="p.id"
         />
       </div>
     </div>
@@ -78,17 +70,13 @@ async function getContent() {
       },
     });
     const projectInfo = await projectRaw.json();
+    
 
     //convert project data to a js object and push it to the array of objects
     const projectData = {
       id: project.key,
-      title: projectInfo.title,
-      description: getObjectByTitle(projectInfo.content, "description").value,
-      coverImage:
-        `https://berowra.zeoxo.deta.app/file/${getObjectByTitle(projectInfo.content, "cover_image")?.value[0]}` || null,
-      tech: getObjectByTitle(projectInfo.content, "tech").value,
-      year: getObjectByTitle(projectInfo.content, "creation_year").value,
       type: getObjectByTitle(projectInfo.content, "type").value,
+      year: getObjectByTitle(projectInfo.content, "creation_year").value,
     };
 
     //sort the project into the correct list
@@ -98,6 +86,8 @@ async function getContent() {
       gameProjects.value.push(projectData);
     }
   });
+
+  
 }
 
 function getObjectByTitle(source: any, value: String): any | undefined {
