@@ -71,7 +71,8 @@ async function getContent() {
     });
     const projectInfo = await projectRaw.json();
     
-
+    console.log(projectInfo);
+    
     //convert project data to a js object and push it to the array of objects
     const projectData = {
       id: project.key,
