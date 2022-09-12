@@ -76,7 +76,7 @@ async function getContent() {
     const projectData = {
       id: project.key,
       type: getObjectByTitle(projectInfo.content, "type").value,
-      year: getObjectByTitle(projectInfo.content, "creation_year").value,
+      year: parseInt(getObjectByTitle(projectInfo.content, "year").value)
     };
 
     //sort the project into the correct list
@@ -85,9 +85,7 @@ async function getContent() {
     } else {
       gameProjects.value.push(projectData);
     }
-  });
-
-  
+  });  
 }
 
 function getObjectByTitle(source: any, value: String): any | undefined {

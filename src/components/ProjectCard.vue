@@ -42,7 +42,7 @@ const title = ref("");
 const description = ref("");
 const link = ref("");
 const image = ref("");
-const year = ref("");
+const year = ref(0);
 const tech = ref([]);
 
 onMounted(() => {
@@ -68,7 +68,7 @@ async function getContent() {
   description.value = getObjectByTitle(projectInfo.content, "description").value;
   image.value = `https://berowra.zeoxo.deta.app/file/${getObjectByTitle(projectInfo.content, "cover_image")?.value[0]}`;
   tech.value = getObjectByTitle(projectInfo.content, "tech").value;
-  year.value = getObjectByTitle(projectInfo.content, "creation_year").value;
+  year.value = getObjectByTitle(projectInfo.content, "year").value;
 }
 
 function getObjectByTitle(source: any, value: String): any | undefined {
