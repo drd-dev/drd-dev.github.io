@@ -6,7 +6,7 @@
       <div> &copy; Dylan Dougherty, {{new Date().getFullYear()}}</div>
     </div>
     <div class="right">
-      <!-- <a class="info" href="">View Source Code</a> -->
+      <a class="info" href="https://github.com/drd-dev/drd-dev.github.io" target="_blank">View Source Code</a>
     </div>
   </div>
 </div>
