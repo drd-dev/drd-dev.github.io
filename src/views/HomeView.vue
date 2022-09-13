@@ -54,7 +54,7 @@ import Contact from "../components/sections/Contact.vue"
   animation-fill-mode: forwards;
 }
 .title {
-  font-size: 35px;
+  font-size: 25px;
   color: var(--col-old-pencil);
   transform: scale(0);
   animation: growIn 0.5s ease-in-out;

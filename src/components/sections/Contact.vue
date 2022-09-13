@@ -108,6 +108,7 @@ button {
   font-family: Lexend;
   font-size: 20px;
   padding: 15px;
+  margin: 5px;
   margin-bottom: 15px;
   border-radius: 10px;
 }
@@ -117,6 +118,7 @@ label {
   font-weight: bold;
   font-size: 20px;
   align-self: flex-start;
+  margin-left: 5px;
 }
 
 .message {
