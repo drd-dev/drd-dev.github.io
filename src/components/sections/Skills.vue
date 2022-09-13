@@ -1,5 +1,15 @@
 <template>
 <div class="skills" id="skills">
+  <div class="lines-vert">
+    <div class="bg-blue"></div>
+    <div class="bg-orange"></div>
+    <div class="bg-red"></div>
+  </div>
+  <div class="lines-hor">
+    <div class="bg-blue"></div>
+    <div class="bg-orange"></div>
+    <div class="bg-red"></div>
+  </div>
   <img class="section-icon" src="@/assets/svg/emoji/brain.svg" alt="">
   <h1>Skills</h1>
   <div class="content">
@@ -7,7 +17,7 @@
       <h2>I <img style="height: 25px;" src="@/assets/svg/emoji/heart.svg" alt=""> Web Tech.</h2>
       <p>I enjoy creating applications with modern web technologies. I love the speed, and efficency that web apps provide, as well as the code once, deploy anywhere capabilities.</p>
       <br>
-      <p>In my off-time, I also like to develop small games using the Unity and Godot game engines as well as doing some light graphic design.</p>
+      <p>I believe that JavaScript is the future of development for most applications due to its flexability and ease of use.</p>
     </div>
     <div class="list">
       <SkillBox text="HTML" icon="src/assets/svg/skills/html.svg" :startYear="2016" link="https://developer.mozilla.org/en-US/docs/Web/HTML"></skillBox>
@@ -34,8 +44,6 @@ import SkillBox from '@/components/SkillBox.vue';
 .skills {
   text-align: center;
   padding-top: 80px;
-  max-width: 1200px;
-  margin: 0px auto;
 }
 
 .content {
@@ -43,6 +51,7 @@ import SkillBox from '@/components/SkillBox.vue';
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  max-width: 1100px;
   margin: 0px auto;
 }
 
@@ -76,16 +85,82 @@ import SkillBox from '@/components/SkillBox.vue';
   margin: 0px auto;
 }
 
+.lines-vert {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  display: flex;
+}
+
+.lines-vert div {
+  margin-right: 5px;
+  width: 8px;
+  height: 20px;
+  top: 0px;
+  bottom: 0px;
+}
+
+.lines-vert .bg-orange {
+  height: 33px;
+}
+
+.lines-vert .bg-red {
+  height: 46px;
+}
+
+.lines-hor {
+  margin: 0px;
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  width: 100vw;
+}
+
+.lines-hor div {
+  margin-bottom: 5px;
+  width: 100%;
+  height: 8px;
+}
+
+.lines-hor .bg-blue{
+  right: 26px;
+}
+
+.lines-hor .bg-orange {
+  right: 13px;
+}
+
+.bg-blue{
+  width: 5px;
+  height: 5px;
+}
+
+
 @media only screen and (max-width: 750px) {
 
-  .content {
-    flex-direction: column;
-  }
-  .card{
-    position: relative;
-    top: 0px;
-    align-self: center;
-  }
+.content {
+  flex-direction: column;
+}
+.card{
+  position: relative;
+  top: 0px;
+  align-self: center;
+}
+
+.lines-vert {
+  display: none;
+}
+
+.lines-hor{
+  width: 100vw;
+  left: 0px;
+}
+
+.lines-hor > .bg-blue, .bg-orange, .bg-red{
+  right: 0px;
+  left: 0px;
+}
+
 }
 
 </style>

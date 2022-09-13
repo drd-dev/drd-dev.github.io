@@ -14,7 +14,8 @@ const lines = ref(null);
 function onScroll(state:boolean){
   if(state){
     const el:any = lines.value;
-    el.classList.add('visible');
+    if(el)
+      el.classList.add('visible');
   }
 }
 </script>

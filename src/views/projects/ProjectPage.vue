@@ -1,99 +1,137 @@
 <template>
-  <div class="cocoon-qr">
-    <ImgModal v-if="modalURL != ''" :image="modalURL" v-on:close="modalURL = ''"/>
+  <div class="project-page" v-if="!loading">
+    <ImgModal v-if="modalURL != ''" :image="modalURL" v-on:close="modalURL = ''" />
     <HLines></HLines>
     <div class="hero">
-      <h1 class="title">{{ title }}</h1>
-      <p class="subtitle">{{ subtitle }}</p>
-      <img class="hero-image" :src="coverImage" @click="openModal(coverImage)" alt="" style="border-radius: 10px;"/>
+      <h1 class="title">{{ data.title }}</h1>
+      <p class="subtitle">{{ data.subtitle }}</p>
+      <img
+        class="hero-image"
+        :src="data.coverImage"
+        @click="openModal(data.coverImage)"
+        alt=""
+        style="border-radius: 10px"
+      />
       <hr class="divider" />
     </div>
     <div class="main content">
       <div class="left">
         <div class="about">
           <h2>About</h2>
-          <slot></slot>
+          <div v-html="data.about"></div>
         </div>
         <div class="info-boxes">
           <div>
-
-        <h2 style="margin-top: 0px;"><img class="icon" src="@/assets/svg/emoji/paper.svg" alt="icon">Main Features</h2>
+            <h2 style="margin-top: 0px">
+              <img class="icon" src="@/assets/svg/emoji/paper.svg" alt="icon" />Main Features
+            </h2>
             <div class="tags">
-              <Tag v-for="f in features">{{ f }}</Tag>
+              <Tag v-for="f in data.features">{{ f }}</Tag>
             </div>
           </div>
 
-          <h2><img class="icon" src="@/assets/svg/emoji/gear.svg" alt="icon">Tech Used</h2>
+          <h2><img class="icon" src="@/assets/svg/emoji/gear.svg" alt="icon" />Tech Used</h2>
           <div class="tags">
-            <Tag v-for="t in tech">{{ t }}</Tag>
+            <Tag v-for="t in data.tech">{{ t }}</Tag>
           </div>
           <div>
-            <h2><img class="icon" src="@/assets/svg/emoji/disk.svg" alt="icon">Try it out</h2>
-            <a class="url" v-if="demoURL" :href="demoURL" target="_blank">Click Here</a>
+            <h2><img class="icon" src="@/assets/svg/emoji/disk.svg" alt="icon" />Try it out</h2>
+            <a class="url" v-if="data.demoLink != 'None'" :href="data.demoLink" target="_blank">Click Here</a>
             <p v-else>Not Available</p>
           </div>
           <div>
-            <h2><img class="icon" src="@/assets/svg/emoji/computer.svg" alt="icon">Source Code</h2>
-            <a class="url" v-if="sourceURL" :href="sourceURL" target="_blank">Click Here</a>
+            <h2><img class="icon" src="@/assets/svg/emoji/computer.svg" alt="icon" />Source Code</h2>
+            <a class="url" v-if="data.sourceLink != 'None'" :href="data.sourceLink" target="_blank">Click Here</a>
             <p v-else>Not Available</p>
           </div>
         </div>
       </div>
       <div class="right">
-        <div class="images">
+        <div class="images" v-if="data.screenshots">
           <h2>Screenshots</h2>
           <img
             class="screenshot-image box-shadow-normal"
-            v-for="s in screenshots"
-            :src="s"
-            @click="openModal(s)"
+            v-for="s in data.screenshots"
+            :src="`https://berowra.zeoxo.deta.app/file/${s}`"
+            @click="openModal(`https://berowra.zeoxo.deta.app/file/${s}`)"
             alt=""
           />
         </div>
       </div>
     </div>
   </div>
+  <div v-else style="height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class="lds-ring" style="margin-bottom: 200px;"><div></div><div></div><div></div><div></div></div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref, type PropType } from "vue";
+import { useRoute } from "vue-router";
+import { marked } from "marked";
+
+//components
 import Tag from "@/components/Tag.vue";
 import ImgModal from "@/components/ImgModal.vue";
 import HLines from "../../components/HLines.vue";
 
-const modalURL = ref("");
+const route = useRoute();
+const modalURL: any = ref("");
+const loading = ref(true);
+const data = ref({
+  title: String,
+  subtitle: String,
+  description: String,
+  about: String,
+  tech: Array<String>,
+  features: Array<String>,
+  demoLink: "",
+  sourceLink: "",
+  creationYear: Date,
+  coverImage: String,
+  screenshots: Array<String>,
+});
 
 onMounted(() => {
   window.scrollTo(0, 0);
+  loadContent(route.params.id);
 });
 
-const props = defineProps({
-  title: {
-    type: String,
-    default: "New Project",
-  },
-  subtitle: {
-    type: String,
-    default: "A new Project",
-  },
-  demoURL: String,
-  sourceURL: String,
-  coverImage: {
-    type: String,
-    default: "",
-  },
-  about: String,
-  tech: Array,
-  features: Array,
-  screenshots: {
-    type: Array as PropType<Array<string>>,
-    default: [],
-  },
-});
-
-function openModal(imageURL: string) {
+function openModal(imageURL: string | StringConstructor) {
   modalURL.value = imageURL;
-  console.log(modalURL.value);
+}
+
+async function loadContent(projectID: string | string[]) {
+  const url = "https://berowra.zeoxo.deta.app/api/content/";
+  const res = await fetch(url + projectID, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  });
+  const body = await res.json();
+  data.value.title = body.title;
+  data.value.subtitle = getObjectByTitle(body.content, "subtitle").value;
+  data.value.about = marked.parse(getObjectByTitle(body.content, "about").value);
+  data.value.tech = getObjectByTitle(body.content, "tech").value;
+  data.value.features = getObjectByTitle(body.content, "features").value;
+  data.value.coverImage = `https://berowra.zeoxo.deta.app/file/${
+    getObjectByTitle(body.content, "cover_image").value[0]
+  }` as any;
+  data.value.screenshots = getObjectByTitle(body.content, "screenshots").value;
+  data.value.demoLink = getObjectByTitle(body.content, "demo_link").value;
+  data.value.sourceLink = getObjectByTitle(body.content, "source_link").value;
+  data.value.creationYear = getObjectByTitle(body.content, "creation_year").value
+  loading.value = false;
+}
+
+function getObjectByTitle(source: any, value: String): any | undefined {
+  for (let i in source) {
+    if (source[i].title == value) {
+      return source[i];
+    }
+  }
 }
 </script>
 
@@ -107,7 +145,7 @@ function openModal(imageURL: string) {
   margin-top: 80px;
 }
 
-.url{
+.url {
   font-family: lexend;
   font-size: 20px;
   margin-left: 10px;
@@ -172,10 +210,18 @@ function openModal(imageURL: string) {
 }
 
 .hero-image {
-  width: 60%;
+  max-width: 800px;
+  max-height: 400px;
 }
 
-@media only screen and (max-width: 750px) {
+img {
+  transition: transform 0.25s;
+}
+
+@media (hover: hover) {
+  img:hover {
+    transform: scale(1.025);
+  }
 }
 
 @media only screen and (max-width: 1150px) {
@@ -197,6 +243,10 @@ function openModal(imageURL: string) {
 
   .screenshot-image {
     width: 95%;
+  }
+
+  .info-boxes{
+    width: 98%;
   }
 }
 </style>

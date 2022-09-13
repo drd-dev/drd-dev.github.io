@@ -55,7 +55,8 @@ img {
   animation-name: grow;
   animation-fill-mode: forwards;
   animation-duration: 0.1s;
-  width: 90%;
+  width: auto;
   border-radius: 10px;
+  max-height: 90vh;
 }
 </style>

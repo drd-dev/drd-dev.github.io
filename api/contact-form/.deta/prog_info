@@ -1,0 +1,1 @@
+{"id":"a8c9fca2-2d30-44dc-ade9-841e8c3e4344","space":9826,"runtime":"nodejs14.x","name":"contact-form","path":"zypgqf","project":"b03roejz","account":"144798365827","region":"us-west-1","deps":["express@^4.18.1","deta@^1.1.0","cors@^2.8.5"],"envs":null,"public":true,"log_level":"debug","cron":""}
