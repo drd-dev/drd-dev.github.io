@@ -24,7 +24,7 @@
     </div>
     <div class="submitted" v-if="submissionState == 2">
       <h1>Thank You!</h1>
-      <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_afs4kbqm.json"  background="transparent"  speed="1"  style="width: 200px; height: 200px;"    autoplay></lottie-player>
+      <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_afs4kbqm.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px;"    autoplay></lottie-player>
       <h2>Your message has been sent.</h2>
     </div>
   </div>

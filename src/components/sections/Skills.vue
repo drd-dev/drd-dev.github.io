@@ -51,6 +51,7 @@ import SkillBox from '@/components/SkillBox.vue';
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
+  max-width: 1100px;
   margin: 0px auto;
 }
 

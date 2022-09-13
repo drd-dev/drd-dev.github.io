@@ -7,10 +7,8 @@ const app = express()
 const cors = require('cors');
 app.use (express.json());
 app.use(cors({
-  origin: ['*', 'http://127.0.0.1:5173, drd.software']
+  origin: ['*', 'http://127.0.0.1:5173', 'https://drd.software']
 }))
- 
-app.get('/', (req, res) => res.send('Hello World!'))
 
 app.post('/submit', async (req, res) => {
   const { name, email, message } = req.body;
