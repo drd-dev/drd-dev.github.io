@@ -82,7 +82,7 @@ const data = ref({
   title: String,
   subtitle: String,
   description: String,
-  about: String,
+  about: "",
   tech: Array<String>,
   features: Array<String>,
   demoLink: "",
