@@ -10,28 +10,35 @@
       <hr class="bg-orange" />
       <hr class="bg-red" />
     </div>
-    <div class="">
+    <div>
       <img class="section-icon" src="@/assets/svg/emoji/folder.svg" alt="" />
       <h1 class="text-light">My Work</h1>
       <img src="@/assets/svg/emoji/globe.svg" alt="globe emoji" style="margin-top: 50px" />
       <h2 style="margin-bottom: 30px">Web</h2>
       <div class="projects">
-        <ProjectCard
-          v-if="webProjects"
-          v-for="p in webProjects"
-          class="project-card"
-          :projectID="p.id"
-        />
+        <ProjectCard v-if="webProjects && !isLoading" v-for="p in webProjects" class="project-card" :projectID="p.id" />
+          <div v-else class="lds-ring" style="width: 100px; height: 100px; display: flex; justify-content: center;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
       </div>
       <img src="@/assets/svg/emoji/controller.svg" alt="controller emoji" style="margin-top: 50px" />
       <h2 style="margin-bottom: 30px">Games</h2>
       <div class="projects">
         <ProjectCard
-          v-if="gameProjects"
+          v-if="gameProjects && !isLoading"
           v-for="p in gameProjects"
           class="project-card"
           :projectID="p.id"
         />
+        <div v-else class="lds-ring" style="width: 100px; height: 100px; display: flex; justify-content: center;">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -43,12 +50,16 @@ import { onMounted, ref } from "vue";
 
 const webProjects: any = ref([]);
 const gameProjects: any = ref([]);
+const isLoading = ref(true);
 
 onMounted(() => {
   getContent();
 });
 
 async function getContent() {
+  let web = [];
+  let game = [];
+
   //get list of projects in the CDN
   const res = await fetch("https://berowra.zeoxo.deta.app/api/collection/klkqa7a8shtv", {
     method: "GET",
@@ -60,7 +71,7 @@ async function getContent() {
   const projectList = await res.json();
 
   //get details for each project
-  projectList.items.forEach(async (project: any) => {
+  for (const project of projectList.items) {
     const url = `https://berowra.zeoxo.deta.app/api/content/${project.key}`;
     const projectRaw = await fetch(url, {
       method: "GET",
@@ -70,23 +81,25 @@ async function getContent() {
       },
     });
     const projectInfo = await projectRaw.json();
-    
-    console.log(projectInfo);
-    
+
     //convert project data to a js object and push it to the array of objects
     const projectData = {
       id: project.key,
       type: getObjectByTitle(projectInfo.content, "type").value,
-      year: parseInt(getObjectByTitle(projectInfo.content, "year").value)
+      year: parseInt(getObjectByTitle(projectInfo.content, "year").value),
     };
 
     //sort the project into the correct list
     if (projectData.type == "web") {
-      webProjects.value.push(projectData);
+      web.push(projectData);
     } else {
-      gameProjects.value.push(projectData);
+      game.push(projectData);
     }
-  });  
+  } //end of for loop
+  //sort projects by year
+  webProjects.value = web.sort((a: any, b: any) => b.year - a.year);
+  gameProjects.value = game.sort((a: any, b: any) => b.year - a.year);
+  isLoading.value = false;
 }
 
 function getObjectByTitle(source: any, value: String): any | undefined {
