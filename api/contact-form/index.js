@@ -7,7 +7,7 @@ const app = express()
 const cors = require('cors');
 app.use (express.json());
 app.use(cors({
-  origin: ['*', 'http://127.0.0.1:5173', 'https://drd.software']
+  origin: ['*', 'http://127.0.0.1:5173', 'https://drd.software', 'https://drd-dev.github.io']
 }))
 
 app.post('/submit', async (req, res) => {
