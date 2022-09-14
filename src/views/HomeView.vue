@@ -34,6 +34,7 @@ import Contact from "../components/sections/Contact.vue"
 </template>
 
 
+
 <style scoped>
 .hero {
   margin-top: 50px;
