@@ -1,7 +1,7 @@
 <template>
   <div class="navbar" :class="{'box-shadow-normal': showShadow}">
     <router-link class="logo" to="/#home">
-      <img src="@/assets/images/logo.svg" alt="logo" />
+      <img src="@/assets/images/Logo.svg" alt="logo" />
     </router-link>
     <div class="links desktop">
       <nav-bar-link class="link" link="/#home">Home</nav-bar-link>
@@ -137,8 +137,10 @@ img {
 
 .logo {
   margin: 0px;
-  height: 40px;
+  height: 35px;
+  width: auto;
   display: flex;
+  filter: invert(9%) sepia(15%) saturate(5071%) hue-rotate(190deg) brightness(98%) contrast(95%);
 }
 
 #contact {
