@@ -20,17 +20,17 @@
       <p>I believe that JavaScript is the future of development for most applications due to its flexability and ease of use.</p>
     </div>
     <div class="list">
-      <SkillBox text="HTML" icon="src/assets/svg/skills/html.svg" :startYear="2016" link="https://developer.mozilla.org/en-US/docs/Web/HTML"></skillBox>
-      <SkillBox text="CSS" icon="src/assets/svg/skills/css.svg" :startYear="2016" link="https://developer.mozilla.org/en-US/docs/Web/CSS"></skillBox>
-      <SkillBox text="Javascript" icon="src/assets/svg/skills/javascript.svg" :startYear="2016" link="https://developer.mozilla.org/en-US/docs/Web/JavaScript"></skillBox>
-      <SkillBox text="Vue" icon="src/assets/svg/skills/vue.svg" :startYear="2017" link="https://vuejs.org/"></skillBox>
-      <SkillBox text="Firebase" icon="src/assets/svg/skills/firebase.svg" :startYear="2017" link="https://firebase.google.com/"></skillBox>
-      <SkillBox text="Node" icon="src/assets/svg/skills/node.svg" :startYear="2016" link="https://nodejs.org/en/"></skillBox>
-      <SkillBox text="Git" icon="src/assets/svg/skills/git.svg" :startYear="2016" link="https://git-scm.com/"></skillBox>
-      <SkillBox text="C#" icon="src/assets/svg/skills/cSharp.svg" :startYear="2016" link="https://docs.microsoft.com/en-us/dotnet/csharp/"></skillBox>
-      <SkillBox text="Unity" icon="src/assets/svg/skills/unity.svg" :startYear="2016" link="https://unity.com/"></skillBox>
-      <SkillBox text="Godot" icon="src/assets/svg/skills/godot.svg" :startYear="2020" link="https://godotengine.org/"></skillBox>
-      <SkillBox text="Affinity" icon="src/assets/svg/skills/affinityDesigner.svg" :startYear="2018" link="https://affinity.serif.com/en-us/designer/"></skillBox>
+      <SkillBox text="HTML" :icon="htmlIcon" :startYear="2016" link="https://developer.mozilla.org/en-US/docs/Web/HTML"></skillBox>
+      <SkillBox text="CSS" :icon="cssIcon" :startYear="2016" link="https://developer.mozilla.org/en-US/docs/Web/CSS"></skillBox>
+      <SkillBox text="Javascript" :icon="jsIcon" :startYear="2016" link="https://developer.mozilla.org/en-US/docs/Web/JavaScript"></skillBox>
+      <SkillBox text="Vue" :icon="vueIcon" :startYear="2017" link="https://vuejs.org/"></skillBox>
+      <SkillBox text="Firebase" :icon="firebaseIcon" :startYear="2017" link="https://firebase.google.com/"></skillBox>
+      <SkillBox text="Node" :icon="nodeIcon" :startYear="2016" link="https://nodejs.org/en/"></skillBox>
+      <SkillBox text="Git" :icon="gitIcon" :startYear="2016" link="https://git-scm.com/"></skillBox>
+      <SkillBox text="C#" :icon="cSharpIcon" :startYear="2016" link="https://docs.microsoft.com/en-us/dotnet/csharp/"></skillBox>
+      <SkillBox text="Unity" :icon="unityIcon" :startYear="2016" link="https://unity.com/"></skillBox>
+      <SkillBox text="Godot" :icon="godotIcon" :startYear="2020" link="https://godotengine.org/"></skillBox>
+      <SkillBox text="Affinity" :icon="affinityIcon" :startYear="2018" link="https://affinity.serif.com/en-us/designer/"></skillBox>
     </div>
   </div>
 </div>
@@ -38,6 +38,17 @@
 
 <script setup lang="ts">
 import SkillBox from '@/components/SkillBox.vue';
+import htmlIcon from '@/assets/svg/skills/html.svg';
+import cssIcon from '@/assets/svg/skills/css.svg';
+import jsIcon from '@/assets/svg/skills/javaScript.svg';
+import vueIcon from '@/assets/svg/skills/vue.svg';
+import firebaseIcon from '@/assets/svg/skills/firebase.svg';
+import nodeIcon from '@/assets/svg/skills/node.svg';
+import gitIcon from '@/assets/svg/skills/git.svg';
+import cSharpIcon from '@/assets/svg/skills/cSharp.svg';
+import unityIcon from '@/assets/svg/skills/unity.svg';
+import godotIcon from '@/assets/svg/skills/godot.svg';
+import affinityIcon from '@/assets/svg/skills/affinityDesigner.svg';
 </script>
 
 <style scoped>
